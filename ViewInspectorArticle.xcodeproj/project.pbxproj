@@ -13,6 +13,9 @@
 		843367482C4EE536009A0CED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843367472C4EE536009A0CED /* Preview Assets.xcassets */; };
 		843367522C4EE536009A0CED /* ViewInspectorArticleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367512C4EE536009A0CED /* ViewInspectorArticleTests.swift */; };
 		8433676D2C4EF95A009A0CED /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 8433676C2C4EF95A009A0CED /* ViewInspector */; };
+		8433676F2C4F02C0009A0CED /* TTTSquareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */; };
+		843367712C4F0302009A0CED /* TTTSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367702C4F0302009A0CED /* TTTSquare.swift */; };
+		843367732C4F0391009A0CED /* TTTSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367722C4F0391009A0CED /* TTTSquareView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 		8433674D2C4EE536009A0CED /* ViewInspectorArticleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewInspectorArticleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		843367512C4EE536009A0CED /* ViewInspectorArticleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInspectorArticleTests.swift; sourceTree = "<group>"; };
 		8433676A2C4EEA0D009A0CED /* ViewInspectorArticle.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ViewInspectorArticle.xctestplan; sourceTree = "<group>"; };
+		8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTSquareTests.swift; sourceTree = "<group>"; };
+		843367702C4F0302009A0CED /* TTTSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTSquare.swift; sourceTree = "<group>"; };
+		843367722C4F0391009A0CED /* TTTSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTSquareView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				843367402C4EE534009A0CED /* ViewInspectorArticleApp.swift */,
+				843367702C4F0302009A0CED /* TTTSquare.swift */,
+				843367722C4F0391009A0CED /* TTTSquareView.swift */,
 				843367422C4EE534009A0CED /* ContentView.swift */,
 				843367442C4EE536009A0CED /* Assets.xcassets */,
 				843367462C4EE536009A0CED /* Preview Content */,
@@ -97,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				843367512C4EE536009A0CED /* ViewInspectorArticleTests.swift */,
+				8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */,
 			);
 			path = ViewInspectorArticleTests;
 			sourceTree = "<group>";
@@ -209,6 +218,8 @@
 			files = (
 				843367432C4EE534009A0CED /* ContentView.swift in Sources */,
 				843367412C4EE534009A0CED /* ViewInspectorArticleApp.swift in Sources */,
+				843367732C4F0391009A0CED /* TTTSquareView.swift in Sources */,
+				843367712C4F0302009A0CED /* TTTSquare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				843367522C4EE536009A0CED /* ViewInspectorArticleTests.swift in Sources */,
+				8433676F2C4F02C0009A0CED /* TTTSquareTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
