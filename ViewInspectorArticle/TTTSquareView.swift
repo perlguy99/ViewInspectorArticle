@@ -16,8 +16,9 @@ struct TTTSquareView: TestableView {
     var body: some View {
         VStack {
             Text(symbol)
-                .onAppear { self.viewInspectorHook?(self) }
-        }.id(idString)
+                .id(idString)
+        }
+        .onAppear { self.viewInspectorHook?(self) }
     }
     
     private var symbol: String {

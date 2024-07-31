@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8402C22E2C5AA549004CB8E4 /* TTTSquareViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402C22D2C5AA549004CB8E4 /* TTTSquareViewTests.swift */; };
 		843367412C4EE534009A0CED /* ViewInspectorArticleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367402C4EE534009A0CED /* ViewInspectorArticleApp.swift */; };
 		843367432C4EE534009A0CED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367422C4EE534009A0CED /* ContentView.swift */; };
 		843367452C4EE536009A0CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843367442C4EE536009A0CED /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8402C22D2C5AA549004CB8E4 /* TTTSquareViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTSquareViewTests.swift; sourceTree = "<group>"; };
 		8433673D2C4EE534009A0CED /* ViewInspectorArticle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewInspectorArticle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		843367402C4EE534009A0CED /* ViewInspectorArticleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInspectorArticleApp.swift; sourceTree = "<group>"; };
 		843367422C4EE534009A0CED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				84D3A6B82C5A9CAF00938B3A /* UpdateTestableView.swift */,
 				843367512C4EE536009A0CED /* ViewInspectorArticleTests.swift */,
 				8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */,
+				8402C22D2C5AA549004CB8E4 /* TTTSquareViewTests.swift */,
 			);
 			path = ViewInspectorArticleTests;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			files = (
 				84D3A6B92C5A9CAF00938B3A /* UpdateTestableView.swift in Sources */,
 				843367522C4EE536009A0CED /* ViewInspectorArticleTests.swift in Sources */,
+				8402C22E2C5AA549004CB8E4 /* TTTSquareViewTests.swift in Sources */,
 				8433676F2C4F02C0009A0CED /* TTTSquareTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

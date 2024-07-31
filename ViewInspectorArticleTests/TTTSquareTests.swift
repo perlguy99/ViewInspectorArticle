@@ -1,12 +1,11 @@
-@testable import ViewInspectorArticle
-@testable import ViewInspector
-import XCTest
-
 // TTTSquare Business Rules
 // - Contains a value that can be
 //     .empty, .x, or .o
 // - Default should be .empty
 
+@testable import ViewInspectorArticle
+@testable import ViewInspector
+import XCTest
 
 final class TTTSquareTests: XCTestCase {
     func test_tttSquareCreation() throws {
@@ -33,19 +32,4 @@ final class TTTSquareTests: XCTestCase {
         XCTAssertEqual(square.value, TTTSquareValue.x)
     }
     
-}
-
-final class TTTSquareViewTests: XCTestCase {
-    
-    func testTTTSquareView_InitialState() throws {
-        let sut = TTTSquareView()
-        let value = try getSquareValue(sut.inspect())
-        
-        XCTAssertEqual(value, "XZ")
-    }
-
-    
-    private func getSquareValue<V: ViewInspector.KnownViewType>(_ view: InspectableView<V>) throws -> String? {
-        try view.asInspectableView().find(viewWithId: "square1").text().string()
-    }
 }
