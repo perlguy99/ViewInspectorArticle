@@ -15,5 +15,4 @@ enum TTTSquareValue {
 
 struct TTTSquare {
     var value: TTTSquareValue = .empty
-    
 }

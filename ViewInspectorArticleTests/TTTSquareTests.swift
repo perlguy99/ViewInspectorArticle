@@ -1,4 +1,5 @@
 @testable import ViewInspectorArticle
+@testable import ViewInspector
 import XCTest
 
 // TTTSquare Business Rules
@@ -12,8 +13,39 @@ final class TTTSquareTests: XCTestCase {
         XCTAssertNoThrow(TTTSquare())
     }
     
-    func test_tttSquarePossibleValues() throws {
-        let sut = TTTSquare()
-        XCTAssertEqual(sut.value, TTTSquareValue.empty)
+    func testTTTSquare_InitialState() throws {
+        let square = TTTSquare()
+        XCTAssertEqual(square.value, TTTSquareValue.empty)
+    }
+    
+    func testTTTSquare_Empty_State() throws {
+        let square = TTTSquare(value: .empty)
+        XCTAssertEqual(square.value, TTTSquareValue.empty)
+    }
+    
+    func testTTTSquare_O_State() throws {
+        let square = TTTSquare(value: .o)
+        XCTAssertEqual(square.value, TTTSquareValue.o)
+    }
+    
+    func testTTTSquare_X_State() throws {
+        let square = TTTSquare(value: .x)
+        XCTAssertEqual(square.value, TTTSquareValue.x)
+    }
+    
+}
+
+final class TTTSquareViewTests: XCTestCase {
+    
+    func testTTTSquareView_InitialState() throws {
+        let sut = TTTSquareView()
+        let value = try getSquareValue(sut.inspect())
+        
+        XCTAssertEqual(value, "XZ")
+    }
+
+    
+    private func getSquareValue<V: ViewInspector.KnownViewType>(_ view: InspectableView<V>) throws -> String? {
+        try view.asInspectableView().find(viewWithId: "square1").text().string()
     }
 }

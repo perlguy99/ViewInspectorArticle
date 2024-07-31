@@ -16,6 +16,8 @@
 		8433676F2C4F02C0009A0CED /* TTTSquareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */; };
 		843367712C4F0302009A0CED /* TTTSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367702C4F0302009A0CED /* TTTSquare.swift */; };
 		843367732C4F0391009A0CED /* TTTSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367722C4F0391009A0CED /* TTTSquareView.swift */; };
+		84D3A6B92C5A9CAF00938B3A /* UpdateTestableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3A6B82C5A9CAF00938B3A /* UpdateTestableView.swift */; };
+		84D3A6BB2C5A9CD700938B3A /* TestableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3A6BA2C5A9CD700938B3A /* TestableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTSquareTests.swift; sourceTree = "<group>"; };
 		843367702C4F0302009A0CED /* TTTSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTSquare.swift; sourceTree = "<group>"; };
 		843367722C4F0391009A0CED /* TTTSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTSquareView.swift; sourceTree = "<group>"; };
+		84D3A6B82C5A9CAF00938B3A /* UpdateTestableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTestableView.swift; sourceTree = "<group>"; };
+		84D3A6BA2C5A9CD700938B3A /* TestableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 				843367422C4EE534009A0CED /* ContentView.swift */,
 				843367442C4EE536009A0CED /* Assets.xcassets */,
 				843367462C4EE536009A0CED /* Preview Content */,
+				84D3A6BA2C5A9CD700938B3A /* TestableView.swift */,
 			);
 			path = ViewInspectorArticle;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 		843367502C4EE536009A0CED /* ViewInspectorArticleTests */ = {
 			isa = PBXGroup;
 			children = (
+				84D3A6B82C5A9CAF00938B3A /* UpdateTestableView.swift */,
 				843367512C4EE536009A0CED /* ViewInspectorArticleTests.swift */,
 				8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */,
 			);
@@ -219,6 +225,7 @@
 				843367432C4EE534009A0CED /* ContentView.swift in Sources */,
 				843367412C4EE534009A0CED /* ViewInspectorArticleApp.swift in Sources */,
 				843367732C4F0391009A0CED /* TTTSquareView.swift in Sources */,
+				84D3A6BB2C5A9CD700938B3A /* TestableView.swift in Sources */,
 				843367712C4F0302009A0CED /* TTTSquare.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D3A6B92C5A9CAF00938B3A /* UpdateTestableView.swift in Sources */,
 				843367522C4EE536009A0CED /* ViewInspectorArticleTests.swift in Sources */,
 				8433676F2C4F02C0009A0CED /* TTTSquareTests.swift in Sources */,
 			);
