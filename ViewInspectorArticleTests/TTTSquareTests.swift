@@ -4,7 +4,6 @@
 // - Default should be .empty
 
 @testable import ViewInspectorArticle
-@testable import ViewInspector
 import XCTest
 
 final class TTTSquareTests: XCTestCase {

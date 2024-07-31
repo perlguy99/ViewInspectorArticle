@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct TTTSquareView: TestableView {
-    var viewInspectorHook: ((Self) -> Void)?
-    
+struct TTTSquareView: View {
     var value: TTTSquareValue = .empty
     var idString: String = "square1"
     
@@ -18,13 +16,12 @@ struct TTTSquareView: TestableView {
             Text(symbol)
                 .id(idString)
         }
-        .onAppear { self.viewInspectorHook?(self) }
     }
     
     private var symbol: String {
         switch value {
         case .empty:
-            return ""
+            return "empty"
         case .x:
             return "X"
         case .o:
