@@ -35,4 +35,15 @@ final class TTTSquareViewTests: XCTestCase {
         // Then
         XCTAssertEqual(actualValue, expectedValue)
     }
+    
+    func testStringValue() {
+        let sut = ContentView()
+        
+        do {
+            let value = try sut.inspect().anyView().text().string()
+            XCTAssertEqual(value, "Hello, world!")
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+    }
 }
