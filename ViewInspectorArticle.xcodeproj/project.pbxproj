@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8402C22E2C5AA549004CB8E4 /* TTTSquareViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402C22D2C5AA549004CB8E4 /* TTTSquareViewTests.swift */; };
 		8402C2302C5AE903004CB8E4 /* ContentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402C22F2C5AE903004CB8E4 /* ContentViewTests.swift */; };
+		8402C2322C5BFA23004CB8E4 /* TTTGameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402C2312C5BFA23004CB8E4 /* TTTGameBoard.swift */; };
 		843367412C4EE534009A0CED /* ViewInspectorArticleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367402C4EE534009A0CED /* ViewInspectorArticleApp.swift */; };
 		843367432C4EE534009A0CED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367422C4EE534009A0CED /* ContentView.swift */; };
 		843367452C4EE536009A0CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843367442C4EE536009A0CED /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		8402C22D2C5AA549004CB8E4 /* TTTSquareViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTSquareViewTests.swift; sourceTree = "<group>"; };
 		8402C22F2C5AE903004CB8E4 /* ContentViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewTests.swift; sourceTree = "<group>"; };
+		8402C2312C5BFA23004CB8E4 /* TTTGameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTGameBoard.swift; sourceTree = "<group>"; };
 		8433673D2C4EE534009A0CED /* ViewInspectorArticle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewInspectorArticle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		843367402C4EE534009A0CED /* ViewInspectorArticleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInspectorArticleApp.swift; sourceTree = "<group>"; };
 		843367422C4EE534009A0CED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				843367402C4EE534009A0CED /* ViewInspectorArticleApp.swift */,
 				843367702C4F0302009A0CED /* TTTSquare.swift */,
 				843367722C4F0391009A0CED /* TTTSquareView.swift */,
+				8402C2312C5BFA23004CB8E4 /* TTTGameBoard.swift */,
 				843367422C4EE534009A0CED /* ContentView.swift */,
 				843367442C4EE536009A0CED /* Assets.xcassets */,
 				843367462C4EE536009A0CED /* Preview Content */,
@@ -228,6 +231,7 @@
 				843367432C4EE534009A0CED /* ContentView.swift in Sources */,
 				843367412C4EE534009A0CED /* ViewInspectorArticleApp.swift in Sources */,
 				843367732C4F0391009A0CED /* TTTSquareView.swift in Sources */,
+				8402C2322C5BFA23004CB8E4 /* TTTGameBoard.swift in Sources */,
 				84D3A6BB2C5A9CD700938B3A /* TestableView.swift in Sources */,
 				843367712C4F0302009A0CED /* TTTSquare.swift in Sources */,
 			);

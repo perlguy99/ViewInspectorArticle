@@ -8,27 +8,27 @@
 import SwiftUI
 
 struct TTTSquareView: View {
-    var value: TTTSquareValue = .empty
+    @StateObject private var square = TTTSquare()
+    
+    var value: String {
+        square.stringValue
+    }
     
     var body: some View {
-        VStack {
-            Text(symbol)
-        }
-    }
-    
-    private var symbol: String {
-        switch value {
-        case .empty:
-            return ""
-        case .x:
-            return "X"
-        case .o:
-            return "O"
-        }
-    }
-    
-    mutating func updateSquare(newValue: TTTSquareValue) {
-         value = newValue
+        RoundedRectangle(cornerRadius: 8)
+            .fill(Color.teal).opacity(0.5)
+            .frame(width: 100, height: 100)
+            .overlay {
+                if let image = square.image {
+                    image
+                        .resizable()
+                        .frame(width: 75, height: 75)
+                }
+            }
+            .onTapGesture {
+                square.toggle()
+                print("You tapped on \(square.stringValue).")
+            }
     }
 }
 
