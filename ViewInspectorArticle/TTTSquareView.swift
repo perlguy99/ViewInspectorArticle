@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct TTTSquareView: View {
+struct TTTSquareView: TestableView {
+    var viewInspectorHook: ((TTTSquareView) -> Void)?
+    
     @StateObject private var square = TTTSquare()
     
     var value: String {
@@ -29,6 +31,7 @@ struct TTTSquareView: View {
                 square.toggle()
                 print("You tapped on \(square.stringValue).")
             }
+            .onAppear { self.viewInspectorHook?(self) }
     }
 }
 
