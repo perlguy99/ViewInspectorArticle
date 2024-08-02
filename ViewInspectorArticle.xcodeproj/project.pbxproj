@@ -11,6 +11,8 @@
 		8402C2302C5AE903004CB8E4 /* ContentViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402C22F2C5AE903004CB8E4 /* ContentViewTests.swift */; };
 		8402C2322C5BFA23004CB8E4 /* TTTGameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402C2312C5BFA23004CB8E4 /* TTTGameBoardView.swift */; };
 		8402C2342C5D66E8004CB8E4 /* TTTGameBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402C2332C5D66DB004CB8E4 /* TTTGameBoardTests.swift */; };
+		8402C2382C5D8C0A004CB8E4 /* GameControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402C2372C5D8BF8004CB8E4 /* GameControllerTests.swift */; };
+		8402C23A2C5D8C6C004CB8E4 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402C2392C5D8C6C004CB8E4 /* GameController.swift */; };
 		843367412C4EE534009A0CED /* ViewInspectorArticleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367402C4EE534009A0CED /* ViewInspectorArticleApp.swift */; };
 		843367432C4EE534009A0CED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367422C4EE534009A0CED /* ContentView.swift */; };
 		843367452C4EE536009A0CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843367442C4EE536009A0CED /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		8402C22F2C5AE903004CB8E4 /* ContentViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewTests.swift; sourceTree = "<group>"; };
 		8402C2312C5BFA23004CB8E4 /* TTTGameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTGameBoardView.swift; sourceTree = "<group>"; };
 		8402C2332C5D66DB004CB8E4 /* TTTGameBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTGameBoardTests.swift; sourceTree = "<group>"; };
+		8402C2372C5D8BF8004CB8E4 /* GameControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerTests.swift; sourceTree = "<group>"; };
+		8402C2392C5D8C6C004CB8E4 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		8433673D2C4EE534009A0CED /* ViewInspectorArticle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewInspectorArticle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		843367402C4EE534009A0CED /* ViewInspectorArticleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInspectorArticleApp.swift; sourceTree = "<group>"; };
 		843367422C4EE534009A0CED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 				843367722C4F0391009A0CED /* TTTSquareView.swift */,
 				8402C2312C5BFA23004CB8E4 /* TTTGameBoardView.swift */,
 				843367422C4EE534009A0CED /* ContentView.swift */,
+				8402C2392C5D8C6C004CB8E4 /* GameController.swift */,
 				843367442C4EE536009A0CED /* Assets.xcassets */,
 				843367462C4EE536009A0CED /* Preview Content */,
 				84D3A6BA2C5A9CD700938B3A /* TestableView.swift */,
@@ -118,6 +123,7 @@
 			children = (
 				84D3A6B82C5A9CAF00938B3A /* UpdateTestableView.swift */,
 				8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */,
+				8402C2372C5D8BF8004CB8E4 /* GameControllerTests.swift */,
 				8402C22D2C5AA549004CB8E4 /* TTTSquareViewTests.swift */,
 				8402C2332C5D66DB004CB8E4 /* TTTGameBoardTests.swift */,
 				8402C22F2C5AE903004CB8E4 /* ContentViewTests.swift */,
@@ -237,6 +243,7 @@
 				8402C2322C5BFA23004CB8E4 /* TTTGameBoardView.swift in Sources */,
 				84D3A6BB2C5A9CD700938B3A /* TestableView.swift in Sources */,
 				843367712C4F0302009A0CED /* TTTSquare.swift in Sources */,
+				8402C23A2C5D8C6C004CB8E4 /* GameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +254,7 @@
 				84D3A6B92C5A9CAF00938B3A /* UpdateTestableView.swift in Sources */,
 				8402C2342C5D66E8004CB8E4 /* TTTGameBoardTests.swift in Sources */,
 				8402C22E2C5AA549004CB8E4 /* TTTSquareViewTests.swift in Sources */,
+				8402C2382C5D8C0A004CB8E4 /* GameControllerTests.swift in Sources */,
 				8402C2302C5AE903004CB8E4 /* ContentViewTests.swift in Sources */,
 				8433676F2C4F02C0009A0CED /* TTTSquareTests.swift in Sources */,
 			);
