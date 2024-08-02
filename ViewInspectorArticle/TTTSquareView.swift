@@ -9,12 +9,9 @@ import SwiftUI
 
 struct TTTSquareView: TestableView {
     var viewInspectorHook: ((TTTSquareView) -> Void)?
+    let viewId = "TTTSquareViewID"
     
-    @StateObject private var square = TTTSquare()
-    
-    var value: String {
-        square.stringValue
-    }
+    @StateObject var square = TTTSquare()
     
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
@@ -24,15 +21,24 @@ struct TTTSquareView: TestableView {
                 if let image = square.image {
                     image
                         .resizable()
+                        .accessibilityLabel(square.stringValue)
                         .frame(width: 75, height: 75)
                 }
             }
+            .id(viewId)
             .onTapGesture {
                 square.toggle()
-                print("You tapped on \(square.stringValue).")
+                print("onTapGesture was called: \(square.stringValue).")
             }
             .onAppear { self.viewInspectorHook?(self) }
     }
+    
+#if DEBUG
+    // Expose square for testing
+    var testableSquare: TTTSquare {
+        return square
+    }
+#endif
 }
 
 #Preview {

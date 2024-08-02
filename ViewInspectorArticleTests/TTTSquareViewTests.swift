@@ -5,73 +5,69 @@
 //  Created by Brent Michalski on 7/31/24.
 //
 @testable import ViewInspectorArticle
-@testable import ViewInspector
+import ViewInspector
 import XCTest
 
 final class TTTSquareViewTests: XCTestCase {
+    let testViewID = "TTTSquareViewID"
     
-    func testInitialSquareState() {
-        let expectedValue = ""
-        
+    @MainActor
+    func testTapOnViewAndValidateToggle() {
         // Given
-        let sut = TTTSquareView()
+        var sut = TTTSquareView()
         
-        // Then
-        XCTAssertEqual(sut.value, expectedValue)
-    }
-
-    func testSquareCanBeUpdatedTo_X() {
-        let initialValue = ""
-        let expectedValue = "X"
-        
-        // Given
-        let sut = TTTSquareView()
-        
-        XCTAssertEqual(sut.value, initialValue)
-        
-        do {
-            try sut.inspect().callOnTapGesture()
-            XCTAssertEqual(sut.value, expectedValue)
-        } catch {
-            print(error.localizedDescription)
+        let exp = sut.on(\.viewInspectorHook) { view in
+            // Validate the initial value
+            XCTAssertEqual(try view.actualView().square.value, .empty)
+            
+            // When: I simulate tapping on the view
+            try view.find(viewWithId: self.testViewID).callOnTapGesture()
+            
+            // Then: The NEW value should be .x
+            XCTAssertEqual(try view.actualView().square.value, .x)
         }
         
-        XCTAssertEqual(sut.value, expectedValue)
+        ViewHosting.host(view: sut)
+        wait(for: [exp], timeout: 0.1)
     }
     
-//    func testSquareCanBeUpdatedTo_O() {
-//        let expectedValue = "O"
-//        
-//        // Given
-//        var sut = TTTSquareView()
-//        sut.updateSquare(newValue: .o)
-//        
-//        do {
-//            // When
-//            let value = try sut.inspect().anyView().vStack().text(0).string()
-//            
-//            // Then
-//            XCTAssertEqual(value, expectedValue)
-//        } catch {
-//            XCTFail(error.localizedDescription)
-//        }
-//    }
-    
-//    func testThatTappingOnSquareUpdatesTheValueProperly() {
-//        var sut = TTTSquareView()
-//        sut.handleTapGesture()
-//    }
+    @MainActor
+    func testTapOnViewAndValidateMultipleToggles() {
+        // Given
+        var sut = TTTSquareView()
+        
+        let exp = sut.on(\.viewInspectorHook) { view in
+            
+            // Starting Value
+            XCTAssertEqual(try view.actualView().square.value, .empty)
+            
+            // Tap #1
+            try view.find(viewWithId: self.testViewID).callOnTapGesture()
+            
+            // Value after 1 tap
+            XCTAssertEqual(try view.actualView().square.value, .x)
 
-//    func getTTTSquareViewValue(tttSquareView: TTTSquareView) -> String {
-//        var returnValue = ""
-//        
-//        do {
-//            returnValue = try tttSquareView.inspect().anyView().vStack().text(0).string()
-//        } catch {
-//            XCTFail(error.localizedDescription)
-//        }
-//        
-//        return returnValue
-//    }
+            // Tap #2
+            try view.find(viewWithId: self.testViewID).callOnTapGesture()
+            
+            // Value after 2 taps
+            XCTAssertEqual(try view.actualView().square.value, .o)
+
+            // Tap #3
+            try view.find(viewWithId: self.testViewID).callOnTapGesture()
+            
+            // Value after 3 taps
+            XCTAssertEqual(try view.actualView().square.value, .empty)
+
+            // Tap #4
+            try view.find(viewWithId: self.testViewID).callOnTapGesture()
+            
+            // Value after 4 taps - we should be back around to .x
+            XCTAssertEqual(try view.actualView().square.value, .x)
+        }
+        
+        ViewHosting.host(view: sut)
+        wait(for: [exp], timeout: 0.1)
+    }
     
 }
