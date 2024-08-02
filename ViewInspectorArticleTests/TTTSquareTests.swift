@@ -20,7 +20,12 @@ final class TTTSquareTests: XCTestCase {
         let square = TTTSquare(value: .empty)
         XCTAssertEqual(square.value, TTTSquareValue.empty)
     }
-    
+
+    func testTTTSquare_Empty_StateByString() throws {
+        let square = TTTSquare(value: .empty)
+        XCTAssertEqual(square.stringValue, ".")
+    }
+
     func testTTTSquare_O_State() throws {
         let square = TTTSquare(value: .o)
         XCTAssertEqual(square.value, TTTSquareValue.o)

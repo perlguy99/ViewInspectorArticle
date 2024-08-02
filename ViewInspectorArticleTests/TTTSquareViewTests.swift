@@ -9,11 +9,11 @@ import ViewInspector
 import XCTest
 
 final class TTTSquareViewTests: XCTestCase {
-    let testViewID = "TTTSquareViewID"
+    let testViewID = 1
     
     func testTapOnViewAndValidateToggle() {
         // Given
-        var sut = TTTSquareView()
+        var sut = TTTSquareView(viewId: testViewID)
         
         let testExpectation = sut.on(\.viewInspectorHook) { view in
             // Get the actual view we are working with
@@ -35,7 +35,7 @@ final class TTTSquareViewTests: XCTestCase {
     
     func testTapOnViewAndValidateMultipleToggles() {
         // Given
-        var sut = TTTSquareView()
+        var sut = TTTSquareView(viewId: testViewID)
         
         let exp = sut.on(\.viewInspectorHook) { view in
             // Get the actual view we are working with

@@ -23,7 +23,7 @@ class TTTSquare: ObservableObject {
     var stringValue: String {
         switch value {
         case .empty:
-            return ""
+            return "."
         case .x:
             return "X"
         case .o:

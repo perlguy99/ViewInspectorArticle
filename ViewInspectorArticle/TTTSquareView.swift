@@ -9,7 +9,11 @@ import SwiftUI
 
 struct TTTSquareView: TestableView {
     var viewInspectorHook: ((TTTSquareView) -> Void)?
-    let viewId = "TTTSquareViewID"
+    var viewId: Int = -1
+
+    init(viewId: Int = -1) {
+        self.viewId = viewId
+    }
     
     @StateObject var square = TTTSquare()
     
@@ -24,13 +28,16 @@ struct TTTSquareView: TestableView {
                         .accessibilityLabel(square.stringValue)
                         .frame(width: 75, height: 75)
                 }
+                Text(square.stringValue)
             }
             .id(viewId)
-            .onTapGesture {
-                square.toggle()
-                print("onTapGesture was called: \(square.stringValue).")
-            }
+            .onTapGesture(perform: handleOnTapGesture)
             .onAppear { self.viewInspectorHook?(self) }
+    }
+    
+    func handleOnTapGesture() {
+        square.toggle()
+        print("onTapGesture was called: \(square.stringValue).")
     }
 }
 
