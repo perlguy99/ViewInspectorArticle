@@ -32,13 +32,6 @@ struct TTTSquareView: TestableView {
             }
             .onAppear { self.viewInspectorHook?(self) }
     }
-    
-#if DEBUG
-    // Expose square for testing
-    var testableSquare: TTTSquare {
-        return square
-    }
-#endif
 }
 
 #Preview {
