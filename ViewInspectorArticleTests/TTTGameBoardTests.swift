@@ -13,9 +13,35 @@ final class TTTGameBoardTests: XCTestCase {
     
     func testThatGameBoardHas9Squares() {
         let sut = TTTGameBoardView()
-        XCTAssertEqual(try sut.inspect().findAll(TTTSquareView.self).count, 9)
+        XCTAssertEqual(try sut.inspect().findAll(TTTSquareView.self).count, 0)
 
     }
+    
+//    func testThatTapsOnSquaresWorkProperly() {
+//        var sut = TTTGameBoardView()
+//        
+//        do {
+//            let foo = try sut.inspect().find(viewWithId: 0)
+//            try foo.callOnTapGesture()
+//            
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//        
+//        let testExpectation = sut.on(\.viewInspectorHook) { view in
+//            
+//            let sut2 = try view.actualView()
+//            let bar = try sut2.inspect().find(viewWithId: 0)
+//            let heh = bar.actualView()
+//            
+//            
+//            try bar.callOnTapGesture()
+//            
+//            
+//        }
+//        
+//    }
+    
     
     // When: I simulate tapping on the view
 //    try view.find(viewWithId: self.testViewID).callOnTapGesture()

@@ -14,7 +14,11 @@ final class GameControllerTests: XCTestCase {
         XCTAssertNoThrow(GameController())
    }
     
-//    func testGameController
+    func testGameControllerStartsWithTurnX() {
+        let sut = GameController()
+        
+        XCTAssertEqual(sut.turn, .x)
+    }
 
     
     
