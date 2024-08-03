@@ -93,21 +93,7 @@ class GameController {
         let o_wins = "O Wins the Game!"
         let draw = "It's a Draw!"
         
-        // X0 O1 X2
-        // O3 X4 O5
-        // X6 O7 X8
-        
-        // if 0, 1, 2 same = (win)
-        // if 3, 4, 5 same = (win)
-        // if 6, 7, 8 same = (win)
-        
-        // if 0, 3, 6 same = (win)
-        // if 1, 4, 7 same = (win)
-        // if 2, 5, 8 same = (win)
-        
-        // if 0, 4, 8 same = (win)
-        // if 2, 4, 6 same = (win)
-        
+        // 3 in-a-row horizontally
         if game.squares[0].value == .x && game.squares[1].value == .x && game.squares[2].value == .x {
             return x_wins
         }
@@ -131,7 +117,33 @@ class GameController {
         if game.squares[6].value == .o && game.squares[7].value == .o && game.squares[8].value == .o {
             return o_wins
         }
+        
+        // 3 in-a-row vertically
+        if game.squares[0].value == .x && game.squares[3].value == .x && game.squares[6].value == .x {
+            return x_wins
+        }
 
+        if game.squares[0].value == .o && game.squares[3].value == .o && game.squares[6].value == .o {
+            return o_wins
+        }
+
+        if game.squares[1].value == .x && game.squares[4].value == .x && game.squares[7].value == .x {
+            return x_wins
+        }
+
+        if game.squares[1].value == .o && game.squares[4].value == .o && game.squares[7].value == .o {
+            return o_wins
+        }
+
+        if game.squares[2].value == .x && game.squares[5].value == .x && game.squares[8].value == .x {
+            return x_wins
+        }
+
+        if game.squares[2].value == .o && game.squares[5].value == .o && game.squares[8].value == .o {
+            return o_wins
+        }
+        
+        // 3 in-a-row diagonally
         if game.squares[0].value == .x && game.squares[4].value == .x && game.squares[8].value == .x {
             return x_wins
         }

@@ -167,9 +167,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_x_across_bottom() {
         let sut = GameController()
         
-        sut.game.squares[3].value = .x
-        sut.game.squares[4].value = .x
-        sut.game.squares[5].value = .x
+        sut.game.squares[6].value = .x
+        sut.game.squares[7].value = .x
+        sut.game.squares[8].value = .x
         
         XCTAssertEqual(sut.checkForWin(), expected_x_wins)
     }
@@ -177,13 +177,72 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_o_across_bottom() {
         let sut = GameController()
         
-        sut.game.squares[3].value = .o
-        sut.game.squares[4].value = .o
-        sut.game.squares[5].value = .o
+        sut.game.squares[6].value = .o
+        sut.game.squares[7].value = .o
+        sut.game.squares[8].value = .o
         
         XCTAssertEqual(sut.checkForWin(), expected_o_wins)
     }
     
+    func testBoardForWin_x_column_1() {
+        let sut = GameController()
+        
+        sut.game.squares[0].value = .x
+        sut.game.squares[3].value = .x
+        sut.game.squares[6].value = .x
+        
+        XCTAssertEqual(sut.checkForWin(), expected_x_wins)
+    }
+    
+    func testBoardForWin_o_column_1() {
+        let sut = GameController()
+        
+        sut.game.squares[0].value = .o
+        sut.game.squares[3].value = .o
+        sut.game.squares[6].value = .o
+        
+        XCTAssertEqual(sut.checkForWin(), expected_o_wins)
+    }
+    
+    func testBoardForWin_x_column_2() {
+        let sut = GameController()
+        
+        sut.game.squares[1].value = .x
+        sut.game.squares[4].value = .x
+        sut.game.squares[7].value = .x
+        
+        XCTAssertEqual(sut.checkForWin(), expected_x_wins)
+    }
+    
+    func testBoardForWin_o_column_2() {
+        let sut = GameController()
+        
+        sut.game.squares[1].value = .o
+        sut.game.squares[4].value = .o
+        sut.game.squares[7].value = .o
+        
+        XCTAssertEqual(sut.checkForWin(), expected_o_wins)
+    }
+    
+    func testBoardForWin_x_column_3() {
+        let sut = GameController()
+        
+        sut.game.squares[2].value = .x
+        sut.game.squares[5].value = .x
+        sut.game.squares[8].value = .x
+        
+        XCTAssertEqual(sut.checkForWin(), expected_x_wins)
+    }
+    
+    func testBoardForWin_o_column_3() {
+        let sut = GameController()
+        
+        sut.game.squares[2].value = .o
+        sut.game.squares[5].value = .o
+        sut.game.squares[8].value = .o
+        
+        XCTAssertEqual(sut.checkForWin(), expected_o_wins)
+    }
     func testBoardForWin_x_across_diagonal1() {
         let sut = GameController()
         
