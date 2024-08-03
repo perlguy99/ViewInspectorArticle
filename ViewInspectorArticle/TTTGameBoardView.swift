@@ -8,28 +8,37 @@
 import SwiftUI
 
 struct TTTGameBoardView: TestableView {
+    @StateObject var gameController = GameController()
+    
     var viewInspectorHook: ((TTTGameBoardView) -> Void)?
     
-    @State var gameController = GameController()
-    
     var body: some View {
-        Grid(horizontalSpacing: 2.0, verticalSpacing: 2.0) {
-            GridRow {
-                // Broke recently
-//                TTTSquareView()
-//                TTTSquareView()
-//                TTTSquareView()
+        VStack {
+            Grid(horizontalSpacing: 2.0, verticalSpacing: 2.0) {
+                ForEach(0..<3) { row in
+                    GridRow {
+                        ForEach(0..<3) {col in
+                            let index = row * 3 + col
+                            TTTSquareView(square: $gameController.game.squares[index])
+                                .onTapGesture {
+                                    gameController.takeTurn(index: index)
+                                }
+                        }
+                    }
+                }
             }
-            GridRow {
-//                TTTSquareView()
-//                TTTSquareView()
-//                TTTSquareView()
+            .padding()
+            
+            if let winnerMessage = gameController.winnerMessage {
+                Text(winnerMessage)
+                    .font(.largeTitle)
+                    .padding()
             }
-            GridRow {
-//                TTTSquareView()
-//                TTTSquareView()
-//                TTTSquareView()
+            
+            Button("Reset Game") {
+                gameController.resetGame()
             }
+            .padding()
         }
         .onAppear { self.viewInspectorHook?(self) }
     }

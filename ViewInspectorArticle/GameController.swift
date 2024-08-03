@@ -36,54 +36,31 @@ struct Game {
 // A "Game" should have 9 TTTSquareView objects
 
 
-@Observable
-class GameController {
-    var game: Game = Game()
-    
-    var turn: TTT_Turn = .x
+class GameController: ObservableObject {
+    @Published var game: Game = Game()
+    @Published var turn: TTT_Turn = .x
+    @Published var winnerMessage: String?
 
     func toggleTurn() {
         turn = (turn == .x ? .o : .x)
     }
     
     func resetGame() {
+        game = Game()
         turn = .x
-    }
-    
-    func newGame() {
-        
-    }
-    
-    func foo() {
-        print(game.squares[0].value)
-    }
-    
-    
-    func toggleSquare(index: Int) {
-        guard index >= 0 && index <= 8 else {
-            print("Index out of range!")
-            return
-        }
-        
-        game.squares[index].toggle()
+        winnerMessage = nil
     }
     
     func takeTurn(index: Int) {
-        guard index >= 0 && index <= 8 else {
-            print("Index out of range!")
-            return
-        }
+        guard index >= 0 && index < 9 else { return }
         
-        // Verify square has not been tapped yet
         if game.squares[index].value == .empty {
-            // Check to see who's turn it is
-            switch turn {
-            case .x:
-                game.squares[index].value = .x
-            case .o:
-                game.squares[index].value = .o
-            }
+            game.squares[index].value = turn == .x ? .x : .o
             
+            if let winner = checkForWin() {
+                winnerMessage = winner
+            }
+
             toggleTurn()
         }
     }
@@ -118,6 +95,23 @@ class GameController {
         return nil
     }
 
+    func asciiRepresentation() -> String {
+        var result = ""
+        for row in 0..<3 {
+            for col in 0..<3 {
+                let index = row * 3 + col
+                let value = game.squares[index].value
+                result += value == .empty ? "." : value == .x ? "X" : "O"
+                if col < 2 {
+                    result += " | "
+                }
+            }
+            if row < 2 {
+                result += "\n---------\n"
+            }
+        }
+        return result
+    }
     
     
 }

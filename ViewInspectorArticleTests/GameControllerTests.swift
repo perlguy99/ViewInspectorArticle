@@ -85,6 +85,7 @@ final class GameControllerTests: XCTestCase {
     
     func testTakeTurnUntilBoardFull() {
         let sut = GameController()
+        sut.resetGame()
         
         // Test we can fill the board and keep track of turns
         sut.takeTurn(index: 0)
