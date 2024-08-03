@@ -10,25 +10,26 @@ import SwiftUI
 struct TTTGameBoardView: TestableView {
     var viewInspectorHook: ((TTTGameBoardView) -> Void)?
     
-    let gameController = GameController()
+    @State var gameController = GameController()
     
     var body: some View {
         Grid(horizontalSpacing: 2.0, verticalSpacing: 2.0) {
-//            GridRow {
+            GridRow {
+                // Broke recently
 //                TTTSquareView()
 //                TTTSquareView()
 //                TTTSquareView()
-//            }
-//            GridRow {
+            }
+            GridRow {
 //                TTTSquareView()
 //                TTTSquareView()
 //                TTTSquareView()
-//            }
-//            GridRow {
+            }
+            GridRow {
 //                TTTSquareView()
 //                TTTSquareView()
 //                TTTSquareView()
-//            }
+            }
         }
         .onAppear { self.viewInspectorHook?(self) }
     }
