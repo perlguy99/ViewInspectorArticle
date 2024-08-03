@@ -93,101 +93,31 @@ class GameController {
         let o_wins = "O Wins the Game!"
         let draw = "It's a Draw!"
         
-        // 3 in-a-row horizontally
-        // 0, 1, 2
-        if game.squares[0].value == .x && game.squares[1].value == .x && game.squares[2].value == .x {
-            return x_wins
-        }
-
-        // 0, 1, 2
-        if game.squares[0].value == .o && game.squares[1].value == .o && game.squares[2].value == .o {
-            return o_wins
-        }
-
-        // 3, 4, 5
-        if game.squares[3].value == .x && game.squares[4].value == .x && game.squares[5].value == .x {
-            return x_wins
-        }
-
-        // 3, 4, 5
-        if game.squares[3].value == .o && game.squares[4].value == .o && game.squares[5].value == .o {
-            return o_wins
-        }
-
-        // 6, 7, 8
-        if game.squares[6].value == .x && game.squares[7].value == .x && game.squares[8].value == .x {
-            return x_wins
-        }
-
-        // 6, 7, 8
-        if game.squares[6].value == .o && game.squares[7].value == .o && game.squares[8].value == .o {
-            return o_wins
-        }
+        let winningCombinations = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Horizontal
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Vertical
+            [0, 4, 8], [2, 4, 6]             // Diagonal
+        ]
         
-        // 3 in-a-row vertically
-        // 0, 3, 6
-        if game.squares[0].value == .x && game.squares[3].value == .x && game.squares[6].value == .x {
-            return x_wins
-        }
-
-        // 0, 3, 6
-        if game.squares[0].value == .o && game.squares[3].value == .o && game.squares[6].value == .o {
-            return o_wins
-        }
-
-        // 1, 4, 7
-        if game.squares[1].value == .x && game.squares[4].value == .x && game.squares[7].value == .x {
-            return x_wins
-        }
-
-        // 1, 4, 7
-        if game.squares[1].value == .o && game.squares[4].value == .o && game.squares[7].value == .o {
-            return o_wins
-        }
-
-        // 2, 5, 8
-        if game.squares[2].value == .x && game.squares[5].value == .x && game.squares[8].value == .x {
-            return x_wins
-        }
-
-        // 2, 5, 8
-        if game.squares[2].value == .o && game.squares[5].value == .o && game.squares[8].value == .o {
-            return o_wins
-        }
-        
-        // 3 in-a-row diagonally
-        // 0, 4, 8
-        if game.squares[0].value == .x && game.squares[4].value == .x && game.squares[8].value == .x {
-            return x_wins
-        }
-
-        // 0, 4, 8
-        if game.squares[0].value == .o && game.squares[4].value == .o && game.squares[8].value == .o {
-            return o_wins
-        }
-
-        // 2, 4, 6
-        if game.squares[2].value == .x && game.squares[4].value == .x && game.squares[6].value == .x {
-            return x_wins
-        }
-
-        // 2, 4, 6
-        if game.squares[2].value == .o && game.squares[4].value == .o && game.squares[6].value == .o {
-            return o_wins
-        }
-
-        // if ALL are filled and still no winner, then it is a draw!
-        for square in game.squares {
-            // are there any empties?
-            if square.value == .empty {
-                return nil
-            } else {
-                return draw
+        // Check for a winner
+        for combination in winningCombinations {
+            let (a, b, c) = (combination[0], combination[1], combination[2])
+            if game.squares[a].value == .x && game.squares[b].value == .x && game.squares[c].value == .x {
+                return x_wins
             }
+            if game.squares[a].value == .o && game.squares[b].value == .o && game.squares[c].value == .o {
+                return o_wins
+            }
+        }
+        
+        // Check for a draw
+        if game.squares.allSatisfy({ $0.value != .empty }) {
+            return draw
         }
         
         return nil
     }
+
     
     
 }
