@@ -10,9 +10,9 @@ import SwiftUI
 struct TTTSquareView: TestableView {
     var viewInspectorHook: ((TTTSquareView) -> Void)?
     var viewId: Int = -1
-
-    @Binding var square: TTTSquare
-
+    
+    @ObservedObject var square: TTTSquare
+    
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
             .fill(Color.teal).opacity(0.5)
@@ -34,8 +34,21 @@ struct TTTSquareView: TestableView {
     }
 }
 
-#Preview {
-    TTTSquareView(square: .constant(TTTSquare(value: .empty)))
-    TTTSquareView(square: .constant(TTTSquare(value: .x)))
-    TTTSquareView(square: .constant(TTTSquare(value: .o)))
+struct TTTSquareView_Preview: PreviewProvider {
+    @StateObject static var square = TTTSquare()
+    
+    static var previews: some View {
+        TTTSquareView(square: square)
+            .padding()
+            .previewLayout(.sizeThatFits)
+    }
+    
 }
+
+//#Preview {
+//    
+////    @Previewable @State var square = TTTSquare()
+////    TTTSquareView(square: square)
+////    TTTSquareView(square: .constant(TTTSquare(value: .x)))
+////    TTTSquareView(square: .constant(TTTSquare(value: .o)))
+//}
