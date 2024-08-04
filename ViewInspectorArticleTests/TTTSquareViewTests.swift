@@ -4,17 +4,35 @@
 //
 //  Created by Brent Michalski on 7/31/24.
 //
-//@testable import ViewInspectorArticle
-//import ViewInspector
-//import XCTest
-//
-//final class TTTSquareViewTests: XCTestCase {
-//    let testViewID = 1
-//    
+@testable import ViewInspectorArticle
+import ViewInspector
+import XCTest
+import SwiftUI
+
+final class TTTSquareViewTests: XCTestCase {
+    let testViewID = 1
+    
 //    func testTapOnViewAndValidateToggle() {
 //        // Given
-//        var sut = TTTSquareView(viewId: testViewID)
+//        @StateObject var gameController = GameController()
+//        var testSquare = TTTSquare()
+//        var sut = TTTSquareView(viewId: testViewID, square: testSquare)
 //        
+//        let testExpectation = sut.on(\.viewInspectorHook) { view in
+//            let sutView = try view.actualView()
+//            XCTAssertEqual(sutView.square.value, .empty)
+//            
+//            try view.find(viewWithId: self.testViewID).callOnTapGesture()
+//            XCTAssertEqual(sutView.square.value, .o)
+//        }
+//        
+//        ViewHosting.host(view: sut)
+//        wait(for: [testExpectation], timeout: 0.1)
+//    }
+        
+        
+        
+        
 //        let testExpectation = sut.on(\.viewInspectorHook) { view in
 //            // Get the actual view we are working with
 //            let sutView = try view.actualView()
@@ -29,10 +47,8 @@
 //            XCTAssertEqual(sutView.square.value, .x)
 //        }
 //        
-//        ViewHosting.host(view: sut)
-//        wait(for: [testExpectation], timeout: 0.1)
 //    }
-//    
+    
 //    func testTapOnViewAndValidateMultipleToggles() {
 //        // Given
 //        var sut = TTTSquareView(viewId: testViewID)
@@ -73,4 +89,4 @@
 //        wait(for: [exp], timeout: 0.1)
 //    }
 //    
-//}
+}

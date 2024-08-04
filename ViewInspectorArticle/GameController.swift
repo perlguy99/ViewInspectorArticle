@@ -24,44 +24,48 @@ enum TTT_Turn {
 
 // Each SquareView item has a TTTSquare() as part of it.
 
-struct Game {
-    var squares = [
+// A "Game" should have 9 TTTSquareView objects
+class GameController: ObservableObject {
+    @Published var turn: TTT_Turn = .x
+    @Published var winnerMessage: String?
+    @Published var squares = [
         TTTSquare(), TTTSquare(), TTTSquare(),
         TTTSquare(), TTTSquare(), TTTSquare(),
         TTTSquare(), TTTSquare(), TTTSquare()
     ]
-}
-
-
-// A "Game" should have 9 TTTSquareView objects
-
-
-class GameController: ObservableObject {
-    @Published var game: Game = Game()
-    @Published var turn: TTT_Turn = .x
-    @Published var winnerMessage: String?
 
     func toggleTurn() {
         turn = (turn == .x ? .o : .x)
     }
     
     func resetGame() {
-        game = Game()
+        resetSquares()
         turn = .x
         winnerMessage = nil
     }
     
+    func resetSquares() {
+        squares = [
+            TTTSquare(), TTTSquare(), TTTSquare(),
+            TTTSquare(), TTTSquare(), TTTSquare(),
+            TTTSquare(), TTTSquare(), TTTSquare()
+        ]
+    }
+    
     func takeTurn(index: Int) {
+        print("\n----------index: \(index)--------------------")
         guard index >= 0 && index < 9 else { return }
+        print("\n----------index 2: \(index)--------------------\n")
         
-        if game.squares[index].value == .empty {
-            game.squares[index].value = turn == .x ? .x : .o
+        if squares[index].value == .empty {
+            squares[index].value = turn == .x ? .x : .o
+
+            toggleTurn()
             
             if let winner = checkForWin() {
                 winnerMessage = winner
             }
 
-            toggleTurn()
         }
     }
     
@@ -79,16 +83,16 @@ class GameController: ObservableObject {
         // Check for a winner
         for combination in winningCombinations {
             let (a, b, c) = (combination[0], combination[1], combination[2])
-            if game.squares[a].value == .x && game.squares[b].value == .x && game.squares[c].value == .x {
+            if squares[a].value == .x && squares[b].value == .x && squares[c].value == .x {
                 return x_wins
             }
-            if game.squares[a].value == .o && game.squares[b].value == .o && game.squares[c].value == .o {
+            if squares[a].value == .o && squares[b].value == .o && squares[c].value == .o {
                 return o_wins
             }
         }
         
         // Check for a draw
-        if game.squares.allSatisfy({ $0.value != .empty }) {
+        if squares.allSatisfy({ $0.value != .empty }) {
             return draw
         }
         
@@ -100,7 +104,7 @@ class GameController: ObservableObject {
         for row in 0..<3 {
             for col in 0..<3 {
                 let index = row * 3 + col
-                let value = game.squares[index].value
+                let value = squares[index].value
                 result += value == .empty ? "." : value == .x ? "X" : "O"
                 if col < 2 {
                     result += " | "

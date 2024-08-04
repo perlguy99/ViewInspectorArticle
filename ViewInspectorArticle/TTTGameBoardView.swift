@@ -17,9 +17,9 @@ struct TTTGameBoardView: TestableView {
             Grid(horizontalSpacing: 2.0, verticalSpacing: 2.0) {
                 ForEach(0..<3) { row in
                     GridRow {
-                        ForEach(0..<3) {col in
+                        ForEach(0..<3) { col in
                             let index = row * 3 + col
-                            TTTSquareView(viewId: index, square: gameController.game.squares[index])
+                            TTTSquareView(viewId: index, square: gameController.squares[index])
                                 .onTapGesture {
                                     gameController.takeTurn(index: index)
                                 }

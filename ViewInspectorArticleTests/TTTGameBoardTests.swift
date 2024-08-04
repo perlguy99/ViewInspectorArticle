@@ -19,7 +19,7 @@ final class TTTGameBoardTests: XCTestCase {
     func testInitialBoardState() throws {
         var sut = TTTGameBoardView()
         let exp = sut.on(\.viewInspectorHook) { view in
-            let squares = try view.actualView().gameController.game.squares
+            let squares = try view.actualView().gameController.squares
             XCTAssertEqual(squares.count, 9)
             XCTAssertTrue(squares.allSatisfy { $0.value == .empty })
         }
@@ -34,10 +34,10 @@ final class TTTGameBoardTests: XCTestCase {
             let gameController = try view.actualView().gameController
             
             gameController.takeTurn(index: 0)
-            XCTAssertEqual(gameController.game.squares[0].value, .x)
+            XCTAssertEqual(gameController.squares[0].value, .x)
 
             gameController.takeTurn(index: 1)
-            XCTAssertEqual(gameController.game.squares[1].value, .o)
+            XCTAssertEqual(gameController.squares[1].value, .o)
         }
         ViewHosting.host(view: sut)
         wait(for: [exp], timeout: 0.1)
