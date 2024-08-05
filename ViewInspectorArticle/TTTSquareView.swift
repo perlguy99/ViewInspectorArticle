@@ -11,6 +11,9 @@ struct TTTSquareView: TestableView {
     var viewInspectorHook: ((TTTSquareView) -> Void)?
     var viewId: Int = -1
     
+    var gameController = GameController()
+    
+    @State private var viewEnabled = true
     var square: TTTSquare = TTTSquare()
     
     var body: some View {
@@ -30,7 +33,11 @@ struct TTTSquareView: TestableView {
     }
     
     func handleOnTapGesture() {
-        square.toggle()
+        if viewEnabled {
+            square.toggle()
+        }
+        
+        viewEnabled = false
     }
 }
 

@@ -14,6 +14,7 @@ enum TTTSquareValue {
 }
 
 class TTTSquare {
+    var currentTurn: TTT_Turn = .x
     var value: TTTSquareValue = .empty
     
     init(value: TTTSquareValue = .empty) {
@@ -43,13 +44,12 @@ class TTTSquare {
     }
     
     func toggle() {
-        switch value {
-        case .empty:
-            value = .x
-        case .x:
-            value = .o
-        case .o:
-            value = .empty
-        }
+        value = currentTurn == .x ? .x : .o
+        toggleTurn()
     }
+    
+    func toggleTurn() {
+        currentTurn = currentTurn == .x ? .o : .x
+    }
+
 }
