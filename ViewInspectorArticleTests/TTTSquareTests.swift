@@ -13,12 +13,12 @@ final class TTTSquareTests: XCTestCase {
     
     func testTTTSquare_InitialState() throws {
         let square = TTTSquare()
-        XCTAssertEqual(square.value, TTTSquareValue.empty)
+        XCTAssertEqual(square.value, TTTSquareState.empty)
     }
     
     func testTTTSquare_Empty_State() throws {
         let square = TTTSquare(value: .empty)
-        XCTAssertEqual(square.value, TTTSquareValue.empty)
+        XCTAssertEqual(square.value, TTTSquareState.empty)
     }
 
     func testTTTSquare_Empty_StateByString() throws {
@@ -28,28 +28,28 @@ final class TTTSquareTests: XCTestCase {
 
     func testTTTSquare_O_State() throws {
         let square = TTTSquare(value: .o)
-        XCTAssertEqual(square.value, TTTSquareValue.o)
+        XCTAssertEqual(square.value, TTTSquareState.o)
     }
     
     func testTTTSquare_X_State() throws {
         let square = TTTSquare(value: .x)
-        XCTAssertEqual(square.value, TTTSquareValue.x)
+        XCTAssertEqual(square.value, TTTSquareState.x)
     }
     
     func testTTTSquare_Toggle() throws {
         let square = TTTSquare()
-        XCTAssertEqual(square.value, TTTSquareValue.empty)
+        XCTAssertEqual(square.value, TTTSquareState.empty)
         
         square.toggle()
-        XCTAssertEqual(square.value, TTTSquareValue.x)
+        XCTAssertEqual(square.value, TTTSquareState.x)
 
         square.toggle()
-        XCTAssertEqual(square.value, TTTSquareValue.o)
+        XCTAssertEqual(square.value, TTTSquareState.o)
 
         square.toggle()
-        XCTAssertEqual(square.value, TTTSquareValue.x)
+        XCTAssertEqual(square.value, TTTSquareState.x)
         
         square.toggle()
-        XCTAssertEqual(square.value, TTTSquareValue.o)
+        XCTAssertEqual(square.value, TTTSquareState.o)
     }
 }
