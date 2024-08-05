@@ -17,8 +17,8 @@ struct TTTSquareView: TestableView {
                 .fill(Color.purple)
                 .frame(width: 100, height: 100)
                 .overlay {
-                    if square.imageNameString.isNotEmpty {
-                        Image(systemName: square.imageNameString)
+                    if square.imageName.isNotEmpty {
+                        Image(systemName: square.imageName)
                             .resizable()
                             .frame(width: 75, height: 75)
                     }

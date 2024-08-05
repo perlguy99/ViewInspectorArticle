@@ -7,21 +7,19 @@
 
 import SwiftUI
 
-enum TTTSquareState {
+protocol TTTSquareStateProtocol: Equatable {
+    var stringValue: String { get }
+    var imageNameString: String { get }
+    func nextState() -> Self
+}
+
+enum TTTSquareState: TTTSquareStateProtocol {
     case empty
     case x
     case o
-}
-
-class TTTSquare {
-    var state: TTTSquareState
-    
-    init(state: TTTSquareState = .empty) {
-        self.state = state
-    }
     
     var stringValue: String {
-        switch state {
+        switch self {
         case .empty:
             return "."
         case .x:
@@ -32,7 +30,7 @@ class TTTSquare {
     }
     
     var imageNameString: String {
-        switch state {
+        switch self {
         case .empty:
             return ""
         case .x:
@@ -42,28 +40,53 @@ class TTTSquare {
         }
     }
     
-    func toggle() {
-        switch state {
+    func nextState() -> TTTSquareState {
+        switch self {
         case .empty:
-            state = .x
+            return .x
         case .x:
-            state = .o
+            return .o
         case .o:
-            state = .x
+            return .x
         }
     }
 }
 
-extension TTTSquare {
-    static let example_x = TTTSquare(state: .x)
-    static let example_o = TTTSquare(state: .o)
-    static let example_e = TTTSquare(state: .empty)
-    
-    static var samples = [
-        TTTSquare(state: .empty),
-        TTTSquare(state: .x),
-        TTTSquare(state: .o)
-    ]
-    
-    static var example = samples[0]
+enum GameTurn {
+    case x
+    case o
 }
+
+class TTTSquare {
+    var state: TTTSquareState
+    
+    init(state: TTTSquareState = TTTSquareState.empty) {
+        self.state = state
+    }
+    
+    var stringValue: String {
+        state.stringValue
+    }
+    
+    var imageName: String {
+        state.imageNameString
+    }
+    
+    func toggle() {
+        state = state.nextState()
+    }
+}
+
+//extension TTTSquare {
+//    static let example_x = TTTSquare(state: .x)
+//    static let example_o = TTTSquare(state: .o)
+//    static let example_e = TTTSquare(state: .empty)
+//    
+//    static var samples = [
+//        TTTSquare(state: .empty),
+//        TTTSquare(state: .x),
+//        TTTSquare(state: .o)
+//    ]
+//    
+//    static var example = samples[0]
+//}
