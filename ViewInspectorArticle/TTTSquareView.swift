@@ -11,11 +11,13 @@ struct TTTSquareView: TestableView {
     
     @State private var square: TTTSquare = TTTSquare()
     
+    #if DEBUG
     init(overrideState: TTTSquareState? = nil) {
         if let overrideState {
             self.square.state = overrideState
         }
     }
+    #endif
     
     var body: some View {
         Group {
@@ -32,14 +34,21 @@ struct TTTSquareView: TestableView {
         }
         .onAppear { self.viewInspectorHook?(self) }
         .onTapGesture {
-            square.toggle()
+            self.handleOnTapGesture()
         }
         .id(-1)
     }
     
+    func handleOnTapGesture() {
+        print("Tapped!")
+        square.toggle()
+    }
+    
+    #if DEBUG
     var testSquare: TTTSquare {
         return square
     }
+    #endif
 }
 
 #Preview {

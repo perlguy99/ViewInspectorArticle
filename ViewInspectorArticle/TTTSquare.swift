@@ -43,15 +43,12 @@ class TTTSquare {
     }
     
     func toggle() {
-        if state == .empty {
+        switch state {
+        case .empty:
             state = .x
-        }
-        
-        if state == .x {
+        case .x:
             state = .o
-        }
-        
-        if state == .o {
+        case .o:
             state = .x
         }
     }

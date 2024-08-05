@@ -37,22 +37,50 @@ final class TTTSquareViewTests: XCTestCase {
         wait(for: [testExpectation], timeout: 0.1)
     }
     
+    func testThatViewChangesBetweenXandOWhenTapped() throws {
+        // Given
+        var sut = TTTSquareView()
+        XCTAssertEqual(sut.testSquare.state, .empty)
+        
+        let testExpectation = sut.on(\.viewInspectorHook) { view in
+            do {
+                // When
+                try view.find(viewWithId: -1).callOnTapGesture()
+                XCTAssertEqual(sut.testSquare.state, .x)
+                
+                try view.find(viewWithId: -1).callOnTapGesture()
+                XCTAssertEqual(sut.testSquare.state, .o)
+                
+                try view.find(viewWithId: -1).callOnTapGesture()
+                XCTAssertEqual(sut.testSquare.state, .x)
+
+                try view.find(viewWithId: -1).callOnTapGesture()
+                XCTAssertEqual(sut.testSquare.state, .o)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        ViewHosting.host(view: sut)
+        wait(for: [testExpectation], timeout: 0.1)
+    }
+    
 //    func testThatViewIsDisabledOnceSelected() throws {
 //        // Given
 //        var sut = TTTSquareView()
-//        XCTAssertEqual(sut.square.state, .empty)
+//        XCTAssertEqual(sut.testSquare.state, .empty)
 //        
 //        let testExpectation = sut.on(\.viewInspectorHook) { view in
 //            do {
 //                // When
 //                try view.find(viewWithId: -1).callOnTapGesture()
-//                XCTAssertEqual(sut.square.value, .x)
+//                XCTAssertEqual(sut.testSquare.state, .x)
 //                
 //                // Calling it a second time _should_ not work
 //                try view.find(viewWithId: -1).callOnTapGesture()
 //                
 //                // Then - so the value should remain .x
-//                XCTAssertEqual(sut.square.value, .x)
+//                XCTAssertEqual(sut.testSquare.state, .o)
 //            } catch {
 //                XCTFail(error.localizedDescription)
 //            }
