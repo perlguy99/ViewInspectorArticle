@@ -57,8 +57,8 @@ enum GameTurn {
     case o
 }
 
-class TTTSquare {
-    var state: TTTSquareState
+class TTTSquare: ObservableObject {
+    @Published var state: TTTSquareState
     
     init(state: TTTSquareState = TTTSquareState.empty) {
         self.state = state

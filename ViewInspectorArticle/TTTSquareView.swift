@@ -9,7 +9,7 @@ import SwiftUI
 struct TTTSquareView: TestableView {
     var viewInspectorHook: ((TTTSquareView) -> Void)?
     
-    @State private var square: TTTSquare = TTTSquare()
+    @ObservedObject private var square: TTTSquare
     
     var body: some View {
         Group {
@@ -39,7 +39,9 @@ struct TTTSquareView: TestableView {
     #if DEBUG
     init(overrideState: TTTSquareState? = nil) {
         if let overrideState {
-            self.square.state = overrideState
+            self.square = TTTSquare(state: overrideState)
+        } else {
+            self.square = TTTSquare()
         }
     }
 
