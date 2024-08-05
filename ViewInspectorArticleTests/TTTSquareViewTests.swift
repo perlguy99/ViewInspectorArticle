@@ -27,7 +27,7 @@ final class TTTSquareViewTests: XCTestCase {
                 try view.find(viewWithId: -1).callOnTapGesture()
                 
                 // Then
-                XCTAssertEqual(sut.state, .x)
+                XCTAssertEqual(sut.testSquare.state, .x)
             } catch {
                 XCTFail(error.localizedDescription)
             }

@@ -6,7 +6,9 @@
 //
 import SwiftUI
 
-struct TTTSquareView: View {
+struct TTTSquareView: TestableView {
+    var viewInspectorHook: ((TTTSquareView) -> Void)?
+    
     @State private var square: TTTSquare = TTTSquare()
     
     init(overrideState: TTTSquareState? = nil) {
@@ -20,7 +22,6 @@ struct TTTSquareView: View {
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color.purple)
                 .frame(width: 100, height: 100)
-            
                 .overlay {
                     if square.imageNameString.isNotEmpty {
                         Image(systemName: square.imageNameString)
@@ -29,9 +30,11 @@ struct TTTSquareView: View {
                     }
                 }
         }
+        .onAppear { self.viewInspectorHook?(self) }
         .onTapGesture {
             square.toggle()
         }
+        .id(-1)
     }
     
     var testSquare: TTTSquare {
