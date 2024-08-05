@@ -25,6 +25,10 @@ struct TTTSquareView: View {
                 state = state == .x ? .o : .x
             }
     }
+    
+    var testState: TTTSquareState {
+        state
+    }
 }
 
 
