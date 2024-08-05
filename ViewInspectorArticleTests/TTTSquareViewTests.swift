@@ -37,7 +37,7 @@ final class TTTSquareViewTests: XCTestCase {
         wait(for: [testExpectation], timeout: 0.1)
     }
     
-    func testThatViewChangesBetweenXandOWhenTapped() throws {
+    func testThatViewChangesBetweenXandOWhenTapped_callOntapGesture() throws {
         // Given
         var sut = TTTSquareView()
         XCTAssertEqual(sut.testSquare.state, .empty)
@@ -65,55 +65,26 @@ final class TTTSquareViewTests: XCTestCase {
         wait(for: [testExpectation], timeout: 0.1)
     }
     
-//    func testThatViewIsDisabledOnceSelected() throws {
-//        // Given
-//        var sut = TTTSquareView()
-//        XCTAssertEqual(sut.testSquare.state, .empty)
-//        
-//        let testExpectation = sut.on(\.viewInspectorHook) { view in
-//            do {
-//                // When
-//                try view.find(viewWithId: -1).callOnTapGesture()
-//                XCTAssertEqual(sut.testSquare.state, .x)
-//                
-//                // Calling it a second time _should_ not work
-//                try view.find(viewWithId: -1).callOnTapGesture()
-//                
-//                // Then - so the value should remain .x
-//                XCTAssertEqual(sut.testSquare.state, .o)
-//            } catch {
-//                XCTFail(error.localizedDescription)
-//            }
-//        }
-//        
-//        ViewHosting.host(view: sut)
-//        wait(for: [testExpectation], timeout: 0.1)
-//    }
-    
-//    func testThatWhenItsOsTurnAndTappedValueBecomesO() throws {
-//        var sut = TTTSquareView()
-//        sut.square.currentTurn = .o
-//        
-//        XCTAssertEqual(sut.square.value, .empty)
-//
-//        let testExpectation = sut.on(\.viewInspectorHook) { view in
-//            do {
-//                // When
-//                try view.find(viewWithId: -1).callOnTapGesture()
-//                XCTAssertEqual(sut.square.value, .o)
-//                
-//                // Calling it a second time _should_ not work
-//                try view.find(viewWithId: -1).callOnTapGesture()
-//                
-//                // Then - so the value should remain .x
-//                XCTAssertEqual(sut.square.value, .o)
-//            } catch {
-//                XCTFail(error.localizedDescription)
-//            }
-//        }
-//        
-//        ViewHosting.host(view: sut)
-//        wait(for: [testExpectation], timeout: 0.1)
-//    }
+    // Notice that since we use a method `handleOnTapGesture()`
+    // when we "Tap" on the view. We can simulate this without
+    // even firing up the actual SwiftUI "view".
+    //
+    // Depending on your needs, this may be good enough.
+    func testThatViewChangesBetweenXandOWhenTapped_callHandleOnTapGesture() throws {
+        // Given
+        var sut = TTTSquareView()
+        XCTAssertEqual(sut.testSquare.state, .empty)
+        
+        sut.handleOnTapGesture()
+        XCTAssertEqual(sut.testSquare.state, .x)
 
+        sut.handleOnTapGesture()
+        XCTAssertEqual(sut.testSquare.state, .o)
+
+        sut.handleOnTapGesture()
+        XCTAssertEqual(sut.testSquare.state, .x)
+
+        sut.handleOnTapGesture()
+        XCTAssertEqual(sut.testSquare.state, .o)
+    }
 }
