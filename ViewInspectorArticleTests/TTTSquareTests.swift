@@ -47,6 +47,9 @@ final class TTTSquareTests: XCTestCase {
         XCTAssertEqual(square.value, TTTSquareValue.o)
 
         square.toggle()
-        XCTAssertEqual(square.value, TTTSquareValue.empty)
+        XCTAssertEqual(square.value, TTTSquareValue.x)
+        
+        square.toggle()
+        XCTAssertEqual(square.value, TTTSquareValue.o)
     }
 }
