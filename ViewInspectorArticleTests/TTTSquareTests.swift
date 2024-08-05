@@ -1,5 +1,5 @@
 // TTTSquare Business Rules
-// - Contains a value that can be
+// - Contains a state that can be
 //     .empty, .x, or .o
 // - Default should be .empty
 
@@ -13,7 +13,7 @@ import XCTest
 //    
 //    func testTTTSquare_InitialState() throws {
 //        let square = TTTSquare()
-//        XCTAssertEqual(square.value, TTTSquareState.empty)
+//        XCTAssertEqual(square.state, TTTSquareState.empty)
 //    }
 //    
 //    func testTTTSquare_Empty_State() throws {

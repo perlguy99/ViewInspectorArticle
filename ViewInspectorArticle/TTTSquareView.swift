@@ -7,9 +7,7 @@
 import SwiftUI
 
 struct TTTSquareView: View {
-//    @State private var state: TTTSquareState = .empty
-    
-    @State var square = TTTSquare()
+    @State private var square: TTTSquare = TTTSquare()
     
     var body: some View {
         Group {
@@ -17,54 +15,51 @@ struct TTTSquareView: View {
                 .fill(Color.purple)
                 .frame(width: 100, height: 100)
             
-//                .overlay {
-//                    if state.imageNameString.isNotEmpty {
-//                        Image(systemName: state.imageNameString)
-//                            .resizable()
-//                            .frame(width: 75, height: 75)
-//                    }
-//                }
+                .overlay {
+                    if square.imageNameString.isNotEmpty {
+                        Image(systemName: square.imageNameString)
+                            .resizable()
+                            .frame(width: 75, height: 75)
+                    }
+                }
         }
-//        .onTapGesture {
-//            
-////            $square.state = square.state == .x ? .o : .x
-////                state = state == .x ? .o : .x
-//            
-//        }
+        .onTapGesture {
+            square.toggle()
+        }
     }
     
-//    var testState: TTTSquare {
-//        square.state
-//    }
-}
-
-
-#Preview {
-//    @Previewable @State var square = TTTSquare()
-//    TTTSquareView(square: square)
+    var testSquare: TTTSquare {
+        return square
+    }
     
-    TTTSquareView()
+
 }
 
-//struct TTTSquareView_Previews_withGenericWrapper: PreviewProvider {
-//    
-//    static var previews: some View {
-//        StatefulPreviewContainer(TTTSquare.example) { binding in
-//            TTTSquareView(square: binding)
+
+
+//struct TTTSquareView_Previews_Container: PreviewProvider {
+//    struct Container: View {
+//        @State var square = TTTSquare()
+//        
+//        var body: some View {
+//            TTTSquareView(square: square)
 //        }
 //    }
+//    
+//    static var previews: some View {
+//        Container()
+//    }
 //}
 
-//struct StatefulPreviewContainer<Value, Content: View>: View {
-//    @State var value: Value
-//    var content: (Binding<Value>) -> Content
-//    
-//    var body: some View {
-//        content($value)
-//    }
-//    
-//    init(_ value: Value, content: @escaping (Binding<Value>) -> Content) {
-//        self._value = State(wrappedValue: value)
-//        self.content = content
-//    }
-//}
+#Preview {
+    Group {
+        TTTSquareView()
+        
+        
+//        let foo = TTTSquare(state: .o)
+//        var bar = TTTSquareView()
+//        bar.square.state = .x
+//        TTTSquareView(square: TTTSquare(state: .x))
+//        TTTSquareView(square: TTTSquare(state: .o))
+    }
+}

@@ -57,8 +57,8 @@ class GameController: ObservableObject {
         guard index >= 0 && index < 9 else { return }
         print("\n----------index 2: \(index)--------------------\n")
         
-        if squares[index].value == .empty {
-            squares[index].value = turn == .x ? .x : .o
+        if squares[index].state == .empty {
+            squares[index].state = turn == .x ? .x : .o
 
             toggleTurn()
             
@@ -83,16 +83,16 @@ class GameController: ObservableObject {
         // Check for a winner
         for combination in winningCombinations {
             let (a, b, c) = (combination[0], combination[1], combination[2])
-            if squares[a].value == .x && squares[b].value == .x && squares[c].value == .x {
+            if squares[a].state == .x && squares[b].state == .x && squares[c].state == .x {
                 return x_wins
             }
-            if squares[a].value == .o && squares[b].value == .o && squares[c].value == .o {
+            if squares[a].state == .o && squares[b].state == .o && squares[c].state == .o {
                 return o_wins
             }
         }
         
         // Check for a draw
-        if squares.allSatisfy({ $0.value != .empty }) {
+        if squares.allSatisfy({ $0.state != .empty }) {
             return draw
         }
         
@@ -104,7 +104,7 @@ class GameController: ObservableObject {
         for row in 0..<3 {
             for col in 0..<3 {
                 let index = row * 3 + col
-                let value = squares[index].value
+                let value = squares[index].state
                 result += value == .empty ? "." : value == .x ? "X" : "O"
                 if col < 2 {
                     result += " | "

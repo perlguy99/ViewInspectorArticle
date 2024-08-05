@@ -21,7 +21,7 @@ import XCTest
 //        let exp = sut.on(\.viewInspectorHook) { view in
 //            let squares = try view.actualView().gameController.squares
 //            XCTAssertEqual(squares.count, 9)
-//            XCTAssertTrue(squares.allSatisfy { $0.value == .empty })
+//            XCTAssertTrue(squares.allSatisfy { $0.state == .empty })
 //        }
 //                          
 //        ViewHosting.host(view: sut)

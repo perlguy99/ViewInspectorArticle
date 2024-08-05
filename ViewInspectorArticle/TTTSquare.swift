@@ -11,39 +11,18 @@ enum TTTSquareState {
     case empty
     case x
     case o
-    
-    var stringValue: String {
-        switch self {
-        case .empty:
-            return "^"
-        case .x:
-            return "X"
-        case .o:
-            return "O"
-        }
-    }
-    
-    var imageNameString: String {
-        switch self {
-        case .empty:
-            return ""
-        case .x:
-            return "multiply"
-        case .o:
-            return "circle"
-        }
-    }
 }
 
 class TTTSquare {
-    var value: TTTSquareState = .empty
     
-    init(value: TTTSquareState = .empty) {
-        self.value = value
+    var state: TTTSquareState = .empty
+    
+    init(state: TTTSquareState = .empty) {
+        self.state = state
     }
     
     var stringValue: String {
-        switch value {
+        switch state {
         case .empty:
             return "."
         case .x:
@@ -54,7 +33,7 @@ class TTTSquare {
     }
     
     var imageNameString: String {
-        switch value {
+        switch state {
         case .empty:
             return ""
         case .x:
@@ -65,16 +44,16 @@ class TTTSquare {
     }
     
     func toggle() {
-        if value == .empty {
-            value = .x
+        if state == .empty {
+            state = .x
         }
         
-        if value == .x {
-            value = .o
+        if state == .x {
+            state = .o
         }
         
-        if value == .o {
-            value = .x
+        if state == .o {
+            state = .x
         }
         
     }
@@ -82,10 +61,14 @@ class TTTSquare {
 }
 
 extension TTTSquare {
+    static let example_x = TTTSquare(state: .x)
+    static let example_o = TTTSquare(state: .o)
+    static let example_e = TTTSquare(state: .empty)
+    
     static var samples = [
-        TTTSquare(value: .empty),
-        TTTSquare(value: .x),
-        TTTSquare(value: .o)
+        TTTSquare(state: .empty),
+        TTTSquare(state: .x),
+        TTTSquare(state: .o)
     ]
     
     static var example = samples[0]

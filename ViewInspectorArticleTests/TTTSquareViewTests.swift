@@ -40,7 +40,7 @@ final class TTTSquareViewTests: XCTestCase {
 //    func testThatViewIsDisabledOnceSelected() throws {
 //        // Given
 //        var sut = TTTSquareView()
-//        XCTAssertEqual(sut.square.value, .empty)
+//        XCTAssertEqual(sut.square.state, .empty)
 //        
 //        let testExpectation = sut.on(\.viewInspectorHook) { view in
 //            do {

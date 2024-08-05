@@ -28,7 +28,7 @@ final class ContentViewTests: XCTestCase {
 //        let sut = ContentView()
 //        
 //        do {
-//            let value = try sut.inspect().anyView().text().string()
+//            let state = try sut.inspect().anyView().text().string()
 //            XCTAssertEqual(value, "Hello, world!")
 //        } catch {
 //            XCTFail(error.localizedDescription)

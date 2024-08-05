@@ -51,36 +51,36 @@ final class GameControllerTests: XCTestCase {
         let sut = GameController()
         
         // Verify all are .empty
-        XCTAssertEqual(sut.squares[0].value, .empty)
-        XCTAssertEqual(sut.squares[1].value, .empty)
-        XCTAssertEqual(sut.squares[2].value, .empty)
-        XCTAssertEqual(sut.squares[3].value, .empty)
-        XCTAssertEqual(sut.squares[4].value, .empty)
-        XCTAssertEqual(sut.squares[5].value, .empty)
-        XCTAssertEqual(sut.squares[6].value, .empty)
-        XCTAssertEqual(sut.squares[7].value, .empty)
-        XCTAssertEqual(sut.squares[8].value, .empty)
+        XCTAssertEqual(sut.squares[0].state, .empty)
+        XCTAssertEqual(sut.squares[1].state, .empty)
+        XCTAssertEqual(sut.squares[2].state, .empty)
+        XCTAssertEqual(sut.squares[3].state, .empty)
+        XCTAssertEqual(sut.squares[4].state, .empty)
+        XCTAssertEqual(sut.squares[5].state, .empty)
+        XCTAssertEqual(sut.squares[6].state, .empty)
+        XCTAssertEqual(sut.squares[7].state, .empty)
+        XCTAssertEqual(sut.squares[8].state, .empty)
         
         // First lets see if we can't simple toggle each one.
         sut.takeTurn(index: 4)
-        XCTAssertEqual(sut.squares[4].value, .x)
+        XCTAssertEqual(sut.squares[4].state, .x)
         
         sut.takeTurn(index: 5)
-        XCTAssertEqual(sut.squares[5].value, .o)
+        XCTAssertEqual(sut.squares[5].state, .o)
     }
     
     func testTakeTurnCannotPickSameSquare() {
         let sut = GameController()
         
         // Verify empty
-        XCTAssertEqual(sut.squares[4].value, .empty)
+        XCTAssertEqual(sut.squares[4].state, .empty)
         
         // First lets see if we can't simple toggle each one.
         sut.takeTurn(index: 4)
-        XCTAssertEqual(sut.squares[4].value, .x)
+        XCTAssertEqual(sut.squares[4].state, .x)
         
         sut.takeTurn(index: 4)
-        XCTAssertEqual(sut.squares[4].value, .x)
+        XCTAssertEqual(sut.squares[4].state, .x)
     }
     
     func testTakeTurnUntilBoardFull() {
@@ -89,31 +89,31 @@ final class GameControllerTests: XCTestCase {
         
         // Test we can fill the board and keep track of turns
         sut.takeTurn(index: 0)
-        XCTAssertEqual(sut.squares[0].value, .x)
+        XCTAssertEqual(sut.squares[0].state, .x)
         
         sut.takeTurn(index: 1)
-        XCTAssertEqual(sut.squares[1].value, .o)
+        XCTAssertEqual(sut.squares[1].state, .o)
         
         sut.takeTurn(index: 2)
-        XCTAssertEqual(sut.squares[2].value, .x)
+        XCTAssertEqual(sut.squares[2].state, .x)
         
         sut.takeTurn(index: 3)
-        XCTAssertEqual(sut.squares[3].value, .o)
+        XCTAssertEqual(sut.squares[3].state, .o)
         
         sut.takeTurn(index: 4)
-        XCTAssertEqual(sut.squares[4].value, .x)
+        XCTAssertEqual(sut.squares[4].state, .x)
         
         sut.takeTurn(index: 5)
-        XCTAssertEqual(sut.squares[5].value, .o)
+        XCTAssertEqual(sut.squares[5].state, .o)
         
         sut.takeTurn(index: 6)
-        XCTAssertEqual(sut.squares[6].value, .x)
+        XCTAssertEqual(sut.squares[6].state, .x)
         
         sut.takeTurn(index: 7)
-        XCTAssertEqual(sut.squares[7].value, .o)
+        XCTAssertEqual(sut.squares[7].state, .o)
         
         sut.takeTurn(index: 8)
-        XCTAssertEqual(sut.squares[8].value, .x)
+        XCTAssertEqual(sut.squares[8].state, .x)
     }
     
     // 3 in-a-row wins
@@ -128,9 +128,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_x_across_top() {
         let sut = GameController()
         
-        sut.squares[0].value = .x
-        sut.squares[1].value = .x
-        sut.squares[2].value = .x
+        sut.squares[0].state = .x
+        sut.squares[1].state = .x
+        sut.squares[2].state = .x
         
         XCTAssertEqual(sut.checkForWin(), expected_x_wins)
     }
@@ -138,9 +138,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_o_across_top() {
         let sut = GameController()
         
-        sut.squares[0].value = .o
-        sut.squares[1].value = .o
-        sut.squares[2].value = .o
+        sut.squares[0].state = .o
+        sut.squares[1].state = .o
+        sut.squares[2].state = .o
         
         XCTAssertEqual(sut.checkForWin(), expected_o_wins)
     }
@@ -148,9 +148,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_x_across_middle() {
         let sut = GameController()
         
-        sut.squares[3].value = .x
-        sut.squares[4].value = .x
-        sut.squares[5].value = .x
+        sut.squares[3].state = .x
+        sut.squares[4].state = .x
+        sut.squares[5].state = .x
         
         XCTAssertEqual(sut.checkForWin(), expected_x_wins)
     }
@@ -158,9 +158,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_o_across_middle() {
         let sut = GameController()
         
-        sut.squares[3].value = .o
-        sut.squares[4].value = .o
-        sut.squares[5].value = .o
+        sut.squares[3].state = .o
+        sut.squares[4].state = .o
+        sut.squares[5].state = .o
         
         XCTAssertEqual(sut.checkForWin(), expected_o_wins)
     }
@@ -168,9 +168,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_x_across_bottom() {
         let sut = GameController()
         
-        sut.squares[6].value = .x
-        sut.squares[7].value = .x
-        sut.squares[8].value = .x
+        sut.squares[6].state = .x
+        sut.squares[7].state = .x
+        sut.squares[8].state = .x
         
         XCTAssertEqual(sut.checkForWin(), expected_x_wins)
     }
@@ -178,9 +178,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_o_across_bottom() {
         let sut = GameController()
         
-        sut.squares[6].value = .o
-        sut.squares[7].value = .o
-        sut.squares[8].value = .o
+        sut.squares[6].state = .o
+        sut.squares[7].state = .o
+        sut.squares[8].state = .o
         
         XCTAssertEqual(sut.checkForWin(), expected_o_wins)
     }
@@ -188,9 +188,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_x_column_1() {
         let sut = GameController()
         
-        sut.squares[0].value = .x
-        sut.squares[3].value = .x
-        sut.squares[6].value = .x
+        sut.squares[0].state = .x
+        sut.squares[3].state = .x
+        sut.squares[6].state = .x
         
         XCTAssertEqual(sut.checkForWin(), expected_x_wins)
     }
@@ -198,9 +198,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_o_column_1() {
         let sut = GameController()
         
-        sut.squares[0].value = .o
-        sut.squares[3].value = .o
-        sut.squares[6].value = .o
+        sut.squares[0].state = .o
+        sut.squares[3].state = .o
+        sut.squares[6].state = .o
         
         XCTAssertEqual(sut.checkForWin(), expected_o_wins)
     }
@@ -208,9 +208,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_x_column_2() {
         let sut = GameController()
         
-        sut.squares[1].value = .x
-        sut.squares[4].value = .x
-        sut.squares[7].value = .x
+        sut.squares[1].state = .x
+        sut.squares[4].state = .x
+        sut.squares[7].state = .x
         
         XCTAssertEqual(sut.checkForWin(), expected_x_wins)
     }
@@ -218,9 +218,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_o_column_2() {
         let sut = GameController()
         
-        sut.squares[1].value = .o
-        sut.squares[4].value = .o
-        sut.squares[7].value = .o
+        sut.squares[1].state = .o
+        sut.squares[4].state = .o
+        sut.squares[7].state = .o
         
         XCTAssertEqual(sut.checkForWin(), expected_o_wins)
     }
@@ -228,9 +228,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_x_column_3() {
         let sut = GameController()
         
-        sut.squares[2].value = .x
-        sut.squares[5].value = .x
-        sut.squares[8].value = .x
+        sut.squares[2].state = .x
+        sut.squares[5].state = .x
+        sut.squares[8].state = .x
         
         XCTAssertEqual(sut.checkForWin(), expected_x_wins)
     }
@@ -238,18 +238,18 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_o_column_3() {
         let sut = GameController()
         
-        sut.squares[2].value = .o
-        sut.squares[5].value = .o
-        sut.squares[8].value = .o
+        sut.squares[2].state = .o
+        sut.squares[5].state = .o
+        sut.squares[8].state = .o
         
         XCTAssertEqual(sut.checkForWin(), expected_o_wins)
     }
     func testBoardForWin_x_across_diagonal1() {
         let sut = GameController()
         
-        sut.squares[0].value = .x
-        sut.squares[4].value = .x
-        sut.squares[8].value = .x
+        sut.squares[0].state = .x
+        sut.squares[4].state = .x
+        sut.squares[8].state = .x
         
         XCTAssertEqual(sut.checkForWin(), expected_x_wins)
     }
@@ -257,9 +257,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_o_across_diagonal1() {
         let sut = GameController()
         
-        sut.squares[0].value = .o
-        sut.squares[4].value = .o
-        sut.squares[8].value = .o
+        sut.squares[0].state = .o
+        sut.squares[4].state = .o
+        sut.squares[8].state = .o
         
         XCTAssertEqual(sut.checkForWin(), expected_o_wins)
     }
@@ -267,9 +267,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_x_across_diagonal2() {
         let sut = GameController()
         
-        sut.squares[2].value = .x
-        sut.squares[4].value = .x
-        sut.squares[6].value = .x
+        sut.squares[2].state = .x
+        sut.squares[4].state = .x
+        sut.squares[6].state = .x
         
         XCTAssertEqual(sut.checkForWin(), expected_x_wins)
     }
@@ -277,9 +277,9 @@ final class GameControllerTests: XCTestCase {
     func testBoardForWin_o_across_diagonal2() {
         let sut = GameController()
         
-        sut.squares[2].value = .o
-        sut.squares[4].value = .o
-        sut.squares[6].value = .o
+        sut.squares[2].state = .o
+        sut.squares[4].state = .o
+        sut.squares[6].state = .o
         
         XCTAssertEqual(sut.checkForWin(), expected_o_wins)
     }
@@ -287,15 +287,15 @@ final class GameControllerTests: XCTestCase {
     func testBoardForDraw() {
         let sut = GameController()
         
-        sut.squares[0].value = .x
-        sut.squares[1].value = .x
-        sut.squares[2].value = .o
-        sut.squares[3].value = .o
-        sut.squares[4].value = .o
-        sut.squares[5].value = .x
-        sut.squares[6].value = .x
-        sut.squares[7].value = .o
-        sut.squares[8].value = .x
+        sut.squares[0].state = .x
+        sut.squares[1].state = .x
+        sut.squares[2].state = .o
+        sut.squares[3].state = .o
+        sut.squares[4].state = .o
+        sut.squares[5].state = .x
+        sut.squares[6].state = .x
+        sut.squares[7].state = .o
+        sut.squares[8].state = .x
         
         XCTAssertEqual(sut.checkForWin(), expected_draw)
     }
