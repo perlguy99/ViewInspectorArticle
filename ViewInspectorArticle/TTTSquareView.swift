@@ -9,6 +9,12 @@ import SwiftUI
 struct TTTSquareView: View {
     @State private var square: TTTSquare = TTTSquare()
     
+    init(overrideState: TTTSquareState? = nil) {
+        if let overrideState {
+            self.square.state = overrideState
+        }
+    }
+    
     var body: some View {
         Group {
             RoundedRectangle(cornerRadius: 10)
@@ -27,39 +33,12 @@ struct TTTSquareView: View {
             square.toggle()
         }
     }
-    
-    var testSquare: TTTSquare {
-        return square
-    }
-    
-
 }
-
-
-
-//struct TTTSquareView_Previews_Container: PreviewProvider {
-//    struct Container: View {
-//        @State var square = TTTSquare()
-//        
-//        var body: some View {
-//            TTTSquareView(square: square)
-//        }
-//    }
-//    
-//    static var previews: some View {
-//        Container()
-//    }
-//}
 
 #Preview {
     Group {
         TTTSquareView()
-        
-        
-//        let foo = TTTSquare(state: .o)
-//        var bar = TTTSquareView()
-//        bar.square.state = .x
-//        TTTSquareView(square: TTTSquare(state: .x))
-//        TTTSquareView(square: TTTSquare(state: .o))
+        TTTSquareView(overrideState: .x)
+        TTTSquareView(overrideState: .o)
     }
 }

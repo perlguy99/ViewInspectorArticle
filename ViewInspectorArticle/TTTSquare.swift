@@ -55,9 +55,7 @@ class TTTSquare {
         if state == .o {
             state = .x
         }
-        
     }
-    
 }
 
 extension TTTSquare {
