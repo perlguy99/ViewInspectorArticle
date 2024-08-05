@@ -11,6 +11,7 @@ struct ContentView: View {
     @State var square = TTTSquare()
     
     var body: some View {
+//        TTTSquareView(square: square)
         TTTSquareView()
 //        TTTGameBoardView()
     }

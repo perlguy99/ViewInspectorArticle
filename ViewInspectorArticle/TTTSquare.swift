@@ -36,7 +36,6 @@ enum TTTSquareState {
 }
 
 class TTTSquare {
-    var currentTurn: TTT_Turn = .x
     var value: TTTSquareState = .empty
     
     init(value: TTTSquareState = .empty) {
@@ -65,17 +64,6 @@ class TTTSquare {
         }
     }
     
-//    var image: Image? {
-//        switch value {
-//        case .empty:
-//            return nil
-//        case .x:
-//            return Image(systemName: "multiply")
-//        case .o:
-//            return Image(systemName: "circle")
-//        }
-//    }
-
     func toggle() {
         if value == .empty {
             value = .x
@@ -91,13 +79,14 @@ class TTTSquare {
         
     }
     
-//    func toggle() {
-//        value = currentTurn == .x ? .x : .o
-//        toggleTurn()
-//    }
-    
-    func toggleTurn() {
-        currentTurn = currentTurn == .x ? .o : .x
-    }
+}
 
+extension TTTSquare {
+    static var samples = [
+        TTTSquare(value: .empty),
+        TTTSquare(value: .x),
+        TTTSquare(value: .o)
+    ]
+    
+    static var example = samples[0]
 }
