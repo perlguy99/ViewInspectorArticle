@@ -33,6 +33,10 @@ struct TTTSquareView: View {
             square.toggle()
         }
     }
+    
+    var testSquare: TTTSquare {
+        return square
+    }
 }
 
 #Preview {

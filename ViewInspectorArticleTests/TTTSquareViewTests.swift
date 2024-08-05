@@ -16,26 +16,26 @@ final class TTTSquareViewTests: XCTestCase {
         XCTAssertNoThrow(TTTSquareView())
     }
 
-//    func testThatTapOnViewChangesSquareValue() throws {
-//        // Given
-//        var sut = TTTSquareView()
-//        XCTAssertEqual(sut.testState, .empty)
-//        
-//        let testExpectation = sut.on(\.viewInspectorHook) { view in
-//            do {
-//                // When
-//                try view.find(viewWithId: -1).callOnTapGesture()
-//                
-//                // Then
-//                XCTAssertEqual(sut.state, .x)
-//            } catch {
-//                XCTFail(error.localizedDescription)
-//            }
-//        }
-//        
-//        ViewHosting.host(view: sut)
-//        wait(for: [testExpectation], timeout: 0.1)
-//    }
+    func testThatTapOnViewChangesSquareValue() throws {
+        // Given
+        var sut = TTTSquareView()
+        XCTAssertEqual(sut.testSquare.state, .empty)
+        
+        let testExpectation = sut.on(\.viewInspectorHook) { view in
+            do {
+                // When
+                try view.find(viewWithId: -1).callOnTapGesture()
+                
+                // Then
+                XCTAssertEqual(sut.state, .x)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        ViewHosting.host(view: sut)
+        wait(for: [testExpectation], timeout: 0.1)
+    }
     
 //    func testThatViewIsDisabledOnceSelected() throws {
 //        // Given
