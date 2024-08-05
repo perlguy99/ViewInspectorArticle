@@ -13,8 +13,8 @@ enum TTTSquareValue {
     case o
 }
 
-class TTTSquare: ObservableObject {
-    @Published var value: TTTSquareValue = .empty
+class TTTSquare {
+    var value: TTTSquareValue = .empty
     
     init(value: TTTSquareValue = .empty) {
         self.value = value

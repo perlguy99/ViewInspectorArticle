@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct TTTSquareView: TestableView {
-    @EnvironmentObject var gameController: GameController
-    
     var viewInspectorHook: ((TTTSquareView) -> Void)?
     var viewId: Int = -1
     
-    @ObservedObject var square: TTTSquare
+    var square: TTTSquare = TTTSquare()
     
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
@@ -37,14 +35,12 @@ struct TTTSquareView: TestableView {
 }
 
 struct TTTSquareView_Preview: PreviewProvider {
-    @StateObject static var gameController = GameController()
-    @StateObject static var square = TTTSquare()
+    static var square = TTTSquare()
     
     static var previews: some View {
         TTTSquareView(square: square)
             .padding()
             .previewLayout(.sizeThatFits)
-            .environmentObject(gameController)
     }
     
 }

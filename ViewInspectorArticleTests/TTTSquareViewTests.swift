@@ -12,8 +12,27 @@ import SwiftUI
 final class TTTSquareViewTests: XCTestCase {
     let testViewID = 1
     
-    func testTTTSquareViewCreation() {
-        XCTAssertNoThrow(TTTSquareView(square: <#T##TTTSquare#>))
+    func testTTTSquareViewCreation() throws {
+        XCTAssertNoThrow(TTTSquareView())
+    }
+
+    func testThatTapOnViewChangesSquareValue() throws {
+        // Given
+        var sut = TTTSquareView()
+        
+        XCTAssertEqual(sut.square.value, .empty)
+        
+        let testExpectation = sut.on(\.viewInspectorHook) { view in
+            do {
+                try view.find(viewWithId: -1).callOnTapGesture()
+                XCTAssertEqual(sut.square.value, .x)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        ViewHosting.host(view: sut)
+        wait(for: [testExpectation], timeout: 0.1)
     }
     
     
