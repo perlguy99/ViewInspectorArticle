@@ -14,8 +14,7 @@ enum TTTSquareState {
 }
 
 class TTTSquare {
-    
-    var state: TTTSquareState = .empty
+    var state: TTTSquareState
     
     init(state: TTTSquareState = .empty) {
         self.state = state
