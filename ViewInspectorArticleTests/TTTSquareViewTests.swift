@@ -12,6 +12,11 @@ import SwiftUI
 final class TTTSquareViewTests: XCTestCase {
     let testViewID = 1
     
+    func testTTTSquareViewCreation() {
+        XCTAssertNoThrow(TTTSquareView(square: <#T##TTTSquare#>))
+    }
+    
+    
 //    func testTapOnViewAndValidateToggle() {
 //        // Given
 //        @StateObject var gameController = GameController()

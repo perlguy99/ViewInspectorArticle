@@ -36,4 +36,17 @@ final class TTTSquareTests: XCTestCase {
         XCTAssertEqual(square.value, TTTSquareValue.x)
     }
     
+    func testTTTSquare_Toggle() throws {
+        let square = TTTSquare()
+        XCTAssertEqual(square.value, TTTSquareValue.empty)
+        
+        square.toggle()
+        XCTAssertEqual(square.value, TTTSquareValue.x)
+
+        square.toggle()
+        XCTAssertEqual(square.value, TTTSquareValue.o)
+
+        square.toggle()
+        XCTAssertEqual(square.value, TTTSquareValue.empty)
+    }
 }
