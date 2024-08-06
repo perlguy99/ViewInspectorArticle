@@ -118,9 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				84799A7F2C625A1600FA9EA2 /* TTTBoardTests.swift */,
-				84D3A6B82C5A9CAF00938B3A /* UpdateTestableView.swift */,
 				8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */,
 				8402C22D2C5AA549004CB8E4 /* TTTSquareViewTests.swift */,
+				84D3A6B82C5A9CAF00938B3A /* UpdateTestableView.swift */,
 			);
 			path = ViewInspectorArticleTests;
 			sourceTree = "<group>";
