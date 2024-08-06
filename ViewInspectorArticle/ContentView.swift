@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var square = TTTSquare()
+//    @State var square = TTTSquare()
     
     var body: some View {
         TTTSquareView()
     }
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}
