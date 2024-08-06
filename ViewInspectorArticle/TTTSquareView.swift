@@ -54,7 +54,7 @@ struct TTTSquareView: TestableView {
 #Preview {
     Group {
         TTTSquareView()
-        TTTSquareView(overrideState: .x)
-        TTTSquareView(overrideState: .o)
+//        TTTSquareView(overrideState: .x)
+//        TTTSquareView(overrideState: .o)
     }
 }
