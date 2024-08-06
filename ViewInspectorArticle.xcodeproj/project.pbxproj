@@ -16,6 +16,8 @@
 		8433676F2C4F02C0009A0CED /* TTTSquareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */; };
 		843367712C4F0302009A0CED /* TTTSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367702C4F0302009A0CED /* TTTSquare.swift */; };
 		843367732C4F0391009A0CED /* TTTSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843367722C4F0391009A0CED /* TTTSquareView.swift */; };
+		84799A802C625A2400FA9EA2 /* TTTBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84799A7F2C625A1600FA9EA2 /* TTTBoardTests.swift */; };
+		84799A822C625A5600FA9EA2 /* TTTBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84799A812C625A5600FA9EA2 /* TTTBoard.swift */; };
 		84CF09162C61507A0094F6AC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF09152C61507A0094F6AC /* Extensions.swift */; };
 		84D3A6B92C5A9CAF00938B3A /* UpdateTestableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3A6B82C5A9CAF00938B3A /* UpdateTestableView.swift */; };
 		84D3A6BB2C5A9CD700938B3A /* TestableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3A6BA2C5A9CD700938B3A /* TestableView.swift */; };
@@ -43,6 +45,8 @@
 		8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTSquareTests.swift; sourceTree = "<group>"; };
 		843367702C4F0302009A0CED /* TTTSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTSquare.swift; sourceTree = "<group>"; };
 		843367722C4F0391009A0CED /* TTTSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTSquareView.swift; sourceTree = "<group>"; };
+		84799A7F2C625A1600FA9EA2 /* TTTBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTBoardTests.swift; sourceTree = "<group>"; };
+		84799A812C625A5600FA9EA2 /* TTTBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTBoard.swift; sourceTree = "<group>"; };
 		84CF09152C61507A0094F6AC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		84D3A6B82C5A9CAF00938B3A /* UpdateTestableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTestableView.swift; sourceTree = "<group>"; };
 		84D3A6BA2C5A9CD700938B3A /* TestableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableView.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			children = (
 				843367402C4EE534009A0CED /* ViewInspectorArticleApp.swift */,
 				843367702C4F0302009A0CED /* TTTSquare.swift */,
+				84799A812C625A5600FA9EA2 /* TTTBoard.swift */,
 				843367722C4F0391009A0CED /* TTTSquareView.swift */,
 				84CF09152C61507A0094F6AC /* Extensions.swift */,
 				843367422C4EE534009A0CED /* ContentView.swift */,
@@ -114,6 +119,7 @@
 			children = (
 				84D3A6B82C5A9CAF00938B3A /* UpdateTestableView.swift */,
 				8433676E2C4F02C0009A0CED /* TTTSquareTests.swift */,
+				84799A7F2C625A1600FA9EA2 /* TTTBoardTests.swift */,
 				8402C22D2C5AA549004CB8E4 /* TTTSquareViewTests.swift */,
 			);
 			path = ViewInspectorArticleTests;
@@ -226,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				843367432C4EE534009A0CED /* ContentView.swift in Sources */,
+				84799A822C625A5600FA9EA2 /* TTTBoard.swift in Sources */,
 				843367412C4EE534009A0CED /* ViewInspectorArticleApp.swift in Sources */,
 				843367732C4F0391009A0CED /* TTTSquareView.swift in Sources */,
 				84D3A6BB2C5A9CD700938B3A /* TestableView.swift in Sources */,
@@ -239,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D3A6B92C5A9CAF00938B3A /* UpdateTestableView.swift in Sources */,
+				84799A802C625A2400FA9EA2 /* TTTBoardTests.swift in Sources */,
 				8402C22E2C5AA549004CB8E4 /* TTTSquareViewTests.swift in Sources */,
 				8433676F2C4F02C0009A0CED /* TTTSquareTests.swift in Sources */,
 			);
