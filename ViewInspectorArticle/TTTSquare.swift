@@ -76,17 +76,3 @@ class TTTSquare: ObservableObject {
         state = state.nextState()
     }
 }
-
-//extension TTTSquare {
-//    static let example_x = TTTSquare(state: .x)
-//    static let example_o = TTTSquare(state: .o)
-//    static let example_e = TTTSquare(state: .empty)
-//    
-//    static var samples = [
-//        TTTSquare(state: .empty),
-//        TTTSquare(state: .x),
-//        TTTSquare(state: .o)
-//    ]
-//    
-//    static var example = samples[0]
-//}

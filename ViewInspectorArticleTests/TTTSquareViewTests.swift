@@ -72,7 +72,7 @@ final class TTTSquareViewTests: XCTestCase {
     // Depending on your needs, this may be good enough.
     func testThatViewChangesBetweenXandOWhenTapped_callHandleOnTapGesture() throws {
         // Given
-        var sut = TTTSquareView()
+        let sut = TTTSquareView()
         XCTAssertEqual(sut.testSquare.state, .empty)
         
         sut.handleOnTapGesture()
