@@ -55,10 +55,38 @@ enum TTTSquareState: TTTSquareStateProtocol {
 enum GameTurn {
     case x
     case o
+    
+    var stringValue: String {
+        switch self {
+        case .x:
+            return "X"
+        case .o:
+            return "O"
+        }
+    }
+    
+    func toggle() -> GameTurn {
+        switch self {
+        case .x:
+            return .o
+        case .o:
+            return .x
+        }
+    }
+    
+    func toTTTSquareState() -> TTTSquareState {
+        switch self {
+        case .x:
+            return .x
+        case .o:
+            return .o
+        }
+    }
 }
 
-class TTTSquare: ObservableObject {
+class TTTSquare: ObservableObject, Identifiable {
     @Published var state: TTTSquareState
+    var id = UUID()
     
     init(state: TTTSquareState = TTTSquareState.empty) {
         self.state = state

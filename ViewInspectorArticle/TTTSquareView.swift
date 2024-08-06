@@ -9,7 +9,8 @@ import SwiftUI
 struct TTTSquareView: TestableView {
     var viewInspectorHook: ((TTTSquareView) -> Void)?
     
-    @ObservedObject private var square: TTTSquare
+//    @ObservedObject private var square: TTTSquare
+    var square: TTTSquare
     
     var body: some View {
         Group {
@@ -24,11 +25,11 @@ struct TTTSquareView: TestableView {
                     }
                 }
         }
+        .id(square.id)
         .onAppear { self.viewInspectorHook?(self) }
-        .onTapGesture {
-            self.handleOnTapGesture()
-        }
-        .id(-1)
+//        .onTapGesture {
+//            self.handleOnTapGesture()
+//        }
     }
     
     func handleOnTapGesture() {

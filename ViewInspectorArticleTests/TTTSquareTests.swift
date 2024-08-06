@@ -16,6 +16,12 @@ final class TTTSquareTests: XCTestCase {
         XCTAssertEqual(square.state, TTTSquareState.empty)
     }
     
+    func testTTTSquare_HasUniqueID() throws {
+        let square1 = TTTSquare()
+        let square2 = TTTSquare()
+        XCTAssertNotEqual(square1.id, square2.id)
+    }
+    
     func testTTTSquare_Empty_State() throws {
         let square = TTTSquare()
         XCTAssertEqual(square.state, TTTSquareState.empty)
