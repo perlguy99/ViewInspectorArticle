@@ -26,6 +26,6 @@ struct TTTBoardView: View {
     }
 }
 
-//#Preview {
-//    TTTBoardView(board: TTTBoard())
-//}
+#Preview {
+    TTTBoardView(board: TTTBoard())
+}

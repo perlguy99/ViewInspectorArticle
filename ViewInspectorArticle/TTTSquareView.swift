@@ -37,17 +37,10 @@ struct TTTSquareView: TestableView {
     }
     
     func handleOnTapGesture() {
+        
         square.toggle()
     }
     
-//    init(overrideState: TTTSquareState? = nil) {
-//        if let overrideState {
-//            self.square = TTTSquare(state: overrideState)
-//        } else {
-//            self.square = TTTSquare()
-//        }
-//    }
-
     var testSquare: TTTSquare {
         return square
     }
