@@ -37,7 +37,7 @@ struct TTTSquareView: TestableView {
     }
     
     func handleOnTapGesture() {
-        
+        print("\n-- handleOnTapGesture --\n")
         square.toggle()
     }
     

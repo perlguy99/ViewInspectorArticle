@@ -34,7 +34,7 @@ class TTTBoard: ObservableObject {
         // Set the state of the square to the turn
         // TTTSquareState      // GameTurn
         squares[index].state = currentTurn.toTTTSquareState()
-
+        
         // Toggle who's turn it is
         currentTurn = currentTurn.toggle()
         

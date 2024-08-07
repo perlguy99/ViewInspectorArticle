@@ -80,4 +80,31 @@ final class TTTBoardTests: XCTestCase {
         XCTAssertTrue(board.isGameOver)
         XCTAssertNil(board.winner)
     }
+    
+    func testReset() throws {
+        let board = TTTBoard()
+        let moves: [(Int, TTTSquareState)] = [
+            (0, .x), (1, .o), (2, .x),
+            (3, .x), (4, .o), (5, .x),
+            (6, .o), (7, .x), (8, .o)
+        ]
+        
+        for (index, state) in moves {
+            board.squares[index].state = state
+        }
+        
+        print("\n\nDraw!")
+        board.printBoard()
+        
+        board.checkForWinner()
+
+        XCTAssertTrue(board.isGameOver)
+        XCTAssertFalse(board.squares.allSatisfy { $0.state == .empty })
+        
+        board.reset()
+
+        XCTAssertFalse(board.isGameOver)
+        XCTAssertTrue(board.squares.allSatisfy { $0.state == .empty })
+        
+    }
 }
