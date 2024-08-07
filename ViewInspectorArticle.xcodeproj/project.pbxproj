@@ -96,12 +96,12 @@
 			isa = PBXGroup;
 			children = (
 				843367402C4EE534009A0CED /* ViewInspectorArticleApp.swift */,
+				843367422C4EE534009A0CED /* ContentView.swift */,
 				843367702C4F0302009A0CED /* TTTSquare.swift */,
-				84799A812C625A5600FA9EA2 /* TTTBoard.swift */,
 				843367722C4F0391009A0CED /* TTTSquareView.swift */,
+				84799A812C625A5600FA9EA2 /* TTTBoard.swift */,
 				84799A832C62999300FA9EA2 /* TTTBoardView.swift */,
 				84CF09152C61507A0094F6AC /* Extensions.swift */,
-				843367422C4EE534009A0CED /* ContentView.swift */,
 				843367442C4EE536009A0CED /* Assets.xcassets */,
 				843367462C4EE536009A0CED /* Preview Content */,
 				84D3A6BA2C5A9CD700938B3A /* TestableView.swift */,

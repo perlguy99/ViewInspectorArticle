@@ -15,8 +15,7 @@ struct TTTBoardView: View {
                 HStack {
                     ForEach(0..<3) { col in
                         let index = row * 3 + col
-                        TTTSquareView()
-//                        TTTSquareView(square: board.squares[index])
+                        TTTSquareView(square: board.squares[index])
                             .onTapGesture {
                                 board.makeMove(at: index)
                             }

@@ -11,6 +11,10 @@ struct TTTSquareView: TestableView {
     
     @ObservedObject private var square: TTTSquare
     
+    init(square: TTTSquare = TTTSquare()) {
+        self._square = ObservedObject(initialValue: square)
+    }
+    
     var body: some View {
         Group {
             RoundedRectangle(cornerRadius: 10)
@@ -36,25 +40,21 @@ struct TTTSquareView: TestableView {
         square.toggle()
     }
     
-    #if DEBUG
-    init(overrideState: TTTSquareState? = nil) {
-        if let overrideState {
-            self.square = TTTSquare(state: overrideState)
-        } else {
-            self.square = TTTSquare()
-        }
-    }
+//    init(overrideState: TTTSquareState? = nil) {
+//        if let overrideState {
+//            self.square = TTTSquare(state: overrideState)
+//        } else {
+//            self.square = TTTSquare()
+//        }
+//    }
 
     var testSquare: TTTSquare {
         return square
     }
-    #endif
 }
 
 #Preview {
-    Group {
-        TTTSquareView()
-//        TTTSquareView(overrideState: .x)
-//        TTTSquareView(overrideState: .o)
-    }
+    TTTSquareView()
+    TTTSquareView(square: TTTSquare(state: .x))
+    TTTSquareView(square: TTTSquare(state: .o))
 }
