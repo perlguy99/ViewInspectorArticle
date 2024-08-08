@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    let board = TTTBoard()
+    @EnvironmentObject var board: TTTBoard
     
     var body: some View {
-        
-        TTTBoardView(board: board)
-        
+        TTTBoardView()
     }
 }
 

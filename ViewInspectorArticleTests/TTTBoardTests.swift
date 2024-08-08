@@ -107,4 +107,43 @@ final class TTTBoardTests: XCTestCase {
         XCTAssertTrue(board.squares.allSatisfy { $0.state == .empty })
         
     }
+    
+    func testInvalidMove() {
+        let board = TTTBoard()
+        board.makeMove(at: 0)
+        board.makeMove(at: 0)
+        XCTAssertEqual(board.squares[0].state, .x)
+        XCTAssertEqual(board.currentTurn, .o)
+    }
+    
+    func testCheckForWinner() {
+        let board = TTTBoard()
+        board.squares[0].state = .x
+        board.squares[1].state = .x
+        board.squares[2].state = .x
+        
+        board.checkForWinner()
+        XCTAssertTrue(board.isGameOver)
+        XCTAssertEqual(board.winner, .x)
+    }
+    
+    func testNotWinner() {
+        let board = TTTBoard()
+        board.squares[0].state = .x
+        board.squares[1].state = .o
+        board.squares[2].state = .x
+        
+        board.checkForWinner()
+        XCTAssertFalse(board.isGameOver)
+        XCTAssertNil(board.winner)
+    }
+    
+    func testToggleCurrentTurn() {
+        let board = TTTBoard()
+        XCTAssertEqual(board.currentTurn, .x)
+        board.toggleCurrentTurn()
+        XCTAssertEqual(board.currentTurn, .o)
+        board.toggleCurrentTurn()
+        XCTAssertEqual(board.currentTurn, .x)
+    }
 }

@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct TTTBoardView: View {
-    @ObservedObject var board: TTTBoard
+    @EnvironmentObject var board: TTTBoard
     
     var body: some View {
         VStack {
@@ -26,6 +26,9 @@ struct TTTBoardView: View {
     }
 }
 
-#Preview {
-    TTTBoardView(board: TTTBoard())
-}
+//#Preview {
+//    var board = TTTBoard()
+//    
+//    TTTBoardView(board: TTTBoard())
+//        .environmentObject(board)
+//}
