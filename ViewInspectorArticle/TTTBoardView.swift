@@ -26,9 +26,7 @@ struct TTTBoardView: View {
     }
 }
 
-//#Preview {
-//    var board = TTTBoard()
-//    
-//    TTTBoardView(board: TTTBoard())
-//        .environmentObject(board)
-//}
+#Preview {
+    TTTBoardView()
+        .environmentObject(TTTBoard())
+}
